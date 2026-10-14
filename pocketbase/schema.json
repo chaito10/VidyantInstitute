@@ -1,0 +1,30 @@
+{
+  "$schema": "PocketBase collections for Vidyarthi coordination (§9.2). Coordination ONLY — course history lives in Fossil repos; credentials/results are independently verifiable signed artifacts. The app must remain useful when this service is unavailable.",
+  "collections": [
+    {
+      "name": "users",
+      "purpose": "User accounts and profiles",
+      "fields": ["id", "email", "name", "role", "created"]
+    },
+    {
+      "name": "course_discovery",
+      "purpose": "Invitations and course discovery metadata (not course content)",
+      "fields": ["id", "course_id", "title", "fossil_remote", "course_revision", "maintainer", "updated"]
+    },
+    {
+      "name": "progress_sync",
+      "purpose": "Optional progress synchronization (learner-controlled, §10 privacy)",
+      "fields": ["id", "user", "course_id", "outcome_id", "event_id", "timestamp", "visibility"]
+    },
+    {
+      "name": "notifications",
+      "purpose": "Notifications and coordination events",
+      "fields": ["id", "user", "type", "payload", "read", "created"]
+    },
+    {
+      "name": "peer_cache",
+      "purpose": "Caches of information replicated from peers",
+      "fields": ["id", "kind", "key", "payload", "source_peer", "cached_at", "ttl"]
+    }
+  ]
+}

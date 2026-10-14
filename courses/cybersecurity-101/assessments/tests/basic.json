@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "job_id": "job-001",
+  "course_id": "vidyarthi:cybersecurity:101",
+  "course_revision": "approved-revision-id",
+  "submission_id": "submission-001",
+  "runner": "wasm",
+  "tests": ["assessments/tests/basic.json"],
+  "limits": {
+    "timeout_seconds": 30,
+    "memory_mb": 128,
+    "network": false
+  }
+}

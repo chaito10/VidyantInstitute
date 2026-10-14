@@ -1,0 +1,36 @@
+{
+  "lesson": "trust-deploy",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "multiple-choice",
+      "prompt": "Two peers return with conflicting credential records. Correct handling?",
+      "choices": [
+        "Keep the newer one (last-write-wins)",
+        "Verify each as a signed record; never merge them",
+        "Average their scores"
+      ],
+      "answer": "Verify each as a signed record; never merge them",
+      "explanation": "§6.2: credentials are verified as signed records rather than merged; no last-write-wins for academic records."
+    },
+    {
+      "id": "q2",
+      "type": "multiple-choice",
+      "prompt": "A learner has 10,000 XP. What does that establish?",
+      "choices": [
+        "Academic competence",
+        "Rewarded learning activity and progress",
+        "Degree eligibility"
+      ],
+      "answer": "Rewarded learning activity and progress",
+      "explanation": "§7 Table 1: XP rewards activity/progress — it does not establish competence."
+    },
+    {
+      "id": "q3",
+      "type": "short-answer",
+      "prompt": "Name the three credential kinds the UI must distinguish, and the deployment profile that adds authorized issuers.",
+      "answer_keywords": ["community", "institution", "legally-recognized", "profile c", "institutional"],
+      "explanation": "§8.3: community / institution / legally-recognized; §9.3: Profile C adds issuer keys and policy management."
+    }
+  ]
+}

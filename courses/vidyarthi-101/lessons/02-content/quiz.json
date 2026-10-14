@@ -1,0 +1,32 @@
+{
+  "lesson": "course-packages",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "multiple-choice",
+      "prompt": "Where does course version history live?",
+      "choices": ["In PocketBase", "In the Fossil course repository", "In the AI provider"],
+      "answer": "In the Fossil course repository",
+      "explanation": "§3.1: Fossil provides inspection, branches, sync, and revision pinning."
+    },
+    {
+      "id": "q2",
+      "type": "short-answer",
+      "prompt": "What must happen before learners use a course release?",
+      "answer_keywords": ["review", "pinned", "release", "publish", "validation", "checks"],
+      "explanation": "§3.4: automated checks + educator review, then a pinned release with a stable revision."
+    },
+    {
+      "id": "q3",
+      "type": "multiple-choice",
+      "prompt": "A course manifest lists 2 credits. What does that grant the learner?",
+      "choices": [
+        "An automatic academic entitlement",
+        "Nothing by itself — an authorized issuer must evaluate it under policy",
+        "A tradable token"
+      ],
+      "answer": "Nothing by itself — an authorized issuer must evaluate it under policy",
+      "explanation": "§3.3: credits are descriptive metadata; §8.4: credits are not tradable assets."
+    }
+  ]
+}

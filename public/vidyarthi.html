@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Vidyarthi — Local Learning Client (Phase I prototype)</title>
+<style>
+:root{color-scheme:light dark}body{font-family:system-ui,sans-serif;max-width:760px;margin:2rem auto;padding:0 1rem;line-height:1.5}
+.card{border:1px solid #8883;padding:1rem;border-radius:12px;margin:1rem 0}.muted{opacity:.75;font-size:.9em}
+button{padding:.5rem 1rem;border-radius:8px;cursor:pointer}input,select{padding:.4rem;margin:.2rem 0}
+#quiz button{display:block;margin:.3rem 0}
+</style>
+</head>
+<body>
+<h1>Vidyarthi — Local Learning Client</h1>
+<p class="muted">Single-file HTML5 + vanilla JS/CSS (§9.1). Offline-capable for downloaded courses. Progress in <code>localStorage</code>. BYOK keys stay in memory by default (§4.2).</p>
+
+<div class="card">
+<h2>1. Course manifest</h2>
+<input type="file" id="courseFile" accept="application/json"/>
+<pre id="courseOut" class="muted">Load courses/cybersecurity-101/course.json to validate (§3.3).</pre>
+</div>
+
+<div class="card">
+<h2>2. Quiz (JSON quiz engine)</h2>
+<input type="file" id="quizFile" accept="application/json"/>
+<div id="quiz"></div>
+<p>XP: <b id="xp">0</b> <span class="muted">(engagement only — not competence, §7)</span></p>
+</div>
+
+<div class="card">
+<h2>3. BYOK provider (memory-only)</h2>
+<label>Kind <select id="pkind">
+<option>ollama</option><option>llamacpp</option><option>openai-compatible</option><option>hosted</option><option>institutional-gateway</option>
+</select></label><br/>
+<label>Endpoint <input id="pendpoint" size="40" placeholder="http://localhost:11434"/></label><br/>
+<label>Model <input id="pmodel" placeholder="llama3"/></label><br/>
+<label>API key (optional, memory only) <input id="pkey" type="password"/></label><br/>
+<button id="psave">Set provider (session only)</button>
+<p id="pout" class="muted"></p>
+<p class="muted">Keys are never written to repos, peers, assets, or logs (§4.2). Tick to persist (explicit opt-in): <input type="checkbox" id="ppersist"/> — demo build ignores persistence.</p>
+</div>
+
+<script>
+const store={get xp(){return +(localStorage.getItem('vidyarthi_xp')||0)},add(n){localStorage.setItem('vidyarthi_xp',this.xp+n);renderXP()}};
+function renderXP(){document.getElementById('xp').textContent=store.xp}renderXP();
+let provider={kind:'ollama',endpoint:'http://localhost:11434',model:'',local:true};
+document.getElementById('courseFile').addEventListener('change',async e=>{
+  const t=await e.target.files[0].text();const out=document.getElementById('courseOut');
+  try{const c=JSON.parse(t);const errs=[];
+    for(const f of['schema_version','id','title','version','language'])if(!c[f])errs.push('missing '+f);
+    if(c.id&&!/^vidyarthi:[a-z0-9-]+:[a-z0-9-]+$/.test(c.id))errs.push('bad id format');
+    out.textContent=errs.length?('INVALID:\n'+errs.join('\n')):('VALID: '+c.id+' v'+c.version+' — '+(c.modules||[]).length+' module(s)');
+  }catch(err){out.textContent='Invalid JSON: '+err}
+});
+document.getElementById('quizFile').addEventListener('change',async e=>{
+  const q=JSON.parse(await e.target.files[0].text());const box=document.getElementById('quiz');box.innerHTML='';
+  q.questions.forEach(qq=>{
+    const d=document.createElement('div');d.innerHTML='<p><b>'+qq.prompt+'</b></p>';
+    if(qq.choices){qq.choices.forEach(ch=>{const b=document.createElement('button');b.textContent=ch;
+      b.onclick=()=>{const ok=ch===qq.answer;alert((ok?'Correct. ':'Try again. ')+(qq.explanation||''));if(ok){store.add(10)}};d.appendChild(b)})}
+    else{const i=document.createElement('input');const b=document.createElement('button');b.textContent='Check';
+      b.onclick=()=>{const ok=(qq.answer_keywords||[]).some(k=>i.value.toLowerCase().includes(k));alert((ok?'Correct. ':'Try again. ')+(qq.explanation||''));if(ok)store.add(10)};
+      d.appendChild(i);d.appendChild(b)}
+    box.appendChild(d)});
+});
+document.getElementById('psave').addEventListener('click',()=>{
+  provider={kind:pkind.value,endpoint:pendpoint.value,model:pmodel.value,local:['ollama','llamacpp'].includes(pkind.value)||pendpoint.value.includes('localhost')};
+  document.getElementById('pkey').value=''; // never retain in DOM longer than needed
+  document.getElementById('pout').textContent=(provider.local?'local inference — prompts stay on device.':'remote inference — prompts will be sent to '+provider.endpoint);
+});
+</script>
+</body>
+</html>

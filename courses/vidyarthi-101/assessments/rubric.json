@@ -1,0 +1,10 @@
+{
+  "rubric_id": "vidyarthi-platform-101-v1",
+  "weights": {
+    "foundations": 1.0,
+    "course-packages": 1.5,
+    "ai-assessment": 1.5,
+    "trust-deploy": 1.0
+  },
+  "pass_threshold": 60
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "id": "vidyarthi:cybersecurity:101",
+  "title": "Foundations of Cybersecurity",
+  "version": "1.0.0",
+  "language": "en",
+  "level": "beginner",
+  "credits": {
+    "value": 2,
+    "system": "vidyarthi-proposed"
+  },
+  "outcomes": [
+    "Explain fundamental security principles",
+    "Identify common attack surfaces"
+  ],
+  "modules": [
+    {
+      "id": "security-fundamentals",
+      "path": "lessons/01-foundations"
+    }
+  ]
+}

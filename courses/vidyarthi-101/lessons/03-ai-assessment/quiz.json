@@ -1,0 +1,36 @@
+{
+  "lesson": "ai-assessment",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "multiple-choice",
+      "prompt": "Where should a BYOK API key be stored by default?",
+      "choices": [
+        "In memory for the active session",
+        "In the course repository for sharing",
+        "In diagnostic logs for debugging"
+      ],
+      "answer": "In memory for the active session",
+      "explanation": "§4.2: persist only on explicit opt-in with encryption; never in repos, peers, assets, or logs."
+    },
+    {
+      "id": "q2",
+      "type": "short-answer",
+      "prompt": "What must default assessment jobs deny, and what must reports record?",
+      "answer_keywords": ["network", "hash", "revision", "rubric", "signer", "score", "limits", "timestamp"],
+      "explanation": "§5.3/§5.5: network=false by default; reports record submission hash, revisions, limits, outcomes, rationale, signer, timestamp."
+    },
+    {
+      "id": "q3",
+      "type": "multiple-choice",
+      "prompt": "A submission passes all automated tests. What is established?",
+      "choices": [
+        "The learner authored it and deserves a degree",
+        "Only that the program passed the specified tests",
+        "That the rubric is academically valid"
+      ],
+      "answer": "Only that the program passed the specified tests",
+      "explanation": "§5.2: execution is separated from academic authorization — authorship, rubric validity, and degree worth need human oversight."
+    }
+  ]
+}

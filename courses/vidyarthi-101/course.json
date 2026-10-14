@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "id": "vidyarthi:platform:101",
+  "title": "Vidyarthi Platform Orientation",
+  "version": "1.0.0",
+  "language": "en",
+  "level": "beginner",
+  "credits": {
+    "value": 1,
+    "system": "vidyarthi-proposed"
+  },
+  "outcomes": [
+    "Describe Vidyarthi's local-first architecture and six logical layers",
+    "Author a valid versioned course package",
+    "Configure a BYOK AI provider without leaking credentials",
+    "Explain the Pipelight assessment workflow and evidence model",
+    "Distinguish XP, competency, credits, and portable credentials"
+  ],
+  "modules": [
+    {
+      "id": "foundations",
+      "path": "lessons/01-foundations"
+    },
+    {
+      "id": "course-packages",
+      "path": "lessons/02-content"
+    },
+    {
+      "id": "ai-assessment",
+      "path": "lessons/03-ai-assessment"
+    },
+    {
+      "id": "trust-deploy",
+      "path": "lessons/04-trust-deploy"
+    }
+  ]
+}

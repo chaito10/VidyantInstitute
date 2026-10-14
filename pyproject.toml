@@ -1,15 +1,7 @@
 [project]
-name = "sageedumint"
-version = "0.1.0"
-description = "Add your description here"
+name = "vidyarthi"
+version = "0.2.0"
+description = "Vidyarthi — local-first micro-learning university core (course validation, Pipelight assessment adapter, BYOK AI, signed credentials)"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = [
-    "bcrypt>=4.3.0",
-    "bencodepy>=0.9.5",
-    "kademlia>=2.2.3",
-    "libtorrent>=2.0.11",
-    "pyjwt>=2.10.1",
-    "transmission-rpc>=7.0.11",
-    "transmissionclient>=0.1",
-]
+dependencies = []

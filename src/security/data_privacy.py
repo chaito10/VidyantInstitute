@@ -1,4 +1,5 @@
-# Data privacy considerations
+# Data privacy considerations — Vidyarthi §10.3 (learner-controlled sharing,
+# data minimization, explicit sync policies).
 
 def anonymize_data(personal_data):
     """

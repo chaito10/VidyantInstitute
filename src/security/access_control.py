@@ -1,4 +1,5 @@
-# Access control logic
+# Access control logic — Vidyarthi §10 (trust boundaries) & §11.1 (scoped roles).
+# See src/vidyarthi/governance.py for the canonical role/permission model.
 
 def check_permission(user_id, resource, action):
     """

@@ -14,15 +14,16 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.13"
       - name: Install
         run: |
-          pip install uv || pip install -r requirements.txt || true
+          pip install uv || true
           uv sync || pip install -e . || true
       - name: Compile check
-        run: python -m compileall src main.py
+        run: python -m compileall src main.py scripts
+      - name: Validate sample course (§3)
+        run: python scripts/validate_course.py courses/cybersecurity-101
       - name: Test
-        if: hashFiles('tests/**', 'test/**') != ''
         run: |
           pip install pytest || true
-          python -m pytest tests/ -q || true
+          python -m pytest tests/ -q

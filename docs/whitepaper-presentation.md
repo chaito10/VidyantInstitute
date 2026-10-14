@@ -2,143 +2,85 @@
 marp: true
 theme: default
 paginate: true
-title: SageEduMint: Modular AI-Powered, Student-Only Education Services
+title: Vidyarthi — Peer-to-Peer, AI-Driven Micro-Learning University (v0.1)
 ---
 
-## 🔍 Abstract
+## Vidyarthi — Digital Distributed University
 
-- For-profit, modular AI-powered education services  
-- **Faculty-less, admin-less, instructor-less**  
-- Only students—no other roles  
-- Services: AI syllabus creation, content generation, automated evaluation  
-- Self-serve, scalable, verifiable credentials  
-- License-aware, blockchain-enabled
-
----
-
-## 🎯 Vision
-
-- Empower self-driven learners  
-- Scalable, adaptive, verifiable learning  
-- No faculty, admins, or instructors  
-- Students are the only users and beneficiaries
+- Peer-to-peer, AI-assisted micro-learning university (White Paper v0.1, Oct 2026)
+- **Local-first**: study offline, sync with peers when available
+- Versioned courses · minimal client · automated assessment · BYOK AI · signed credentials
+- **No blockchain required** for the initial release
 
 ---
 
-## 🧱 Architectural Principles
+## Design principles (§1.3)
 
-- **Student-Only**: No other roles exist  
-- **Service-Oriented**: APIs and managed services  
-- **Modular**: Customizable, version-controlled  
-- **Passive Infrastructure**: Static-first, scalable  
-- **Local AI**: On-premises or managed cloud  
-- **License-Aware**: PUCL-1.0, Creative Commons
+- Local-first · repository-native · AI-assisted, human-accountable
+- Provider-independent · composable · open and inspectable
+- Evidence-based · portable · resource-efficient · security by design
 
 ---
 
-## 🗺️ Project & University-as-a-Service Structure
+## Six logical layers (§2)
 
-<div class="mermaid">
-graph TD
-  A[Student] --> B[Self-Service Dashboard]
-  B --> C[AI Syllabus Creation Service]
-  B --> D[Content Generation Service]
-  B --> E[Automated Evaluation Service]
-  B --> F[NFT Credentialing Optional]
-  B --> G[Student Feedback & Support]
-  C --> H[Ollama AI Engine]
-  D --> H
-  E --> H
-  F --> I[Blockchain / IPFS]
-</div>
+| Layer | Technology |
+|---|---|
+| Learning interface | HTML5, vanilla JS, CSS |
+| Academic content | Fossil SCM, Markdown, JSON |
+| Coordination | PocketBase |
+| AI assistance | BYOK adapters, local endpoints |
+| Execution & assessment | Pipelight, Rust, WASM |
+| Distribution & trust | Fossil sync, optional libp2p, pubkey crypto |
 
 ---
 
-## 🧠 Core Service Modules
+## Courses as versioned artifacts (§3)
 
-- **Student Registration**: API onboarding, wallet/email identity  
-- **AI Syllabus Creation**: Adaptive, per-student, SaaS/API  
-- **Content Generation**: AI-generated, customizable  
-- **Automated Evaluation**: Rubric-based, AI feedback  
-- **NFT Credentialing**: Verifiable, optional
-
----
-
-## 🏛️ Governance & Engagement
-
-- **Student-Only Governance**: No admins, faculty, or staff  
-- **Self-Service**: Students manage learning, credentials, usage  
-- **License Governance**: Students select license tiers
+- Each course: a Fossil repository (syllabus, lessons, quizzes, rubrics, media)
+- `course.json` manifest: id, version, outcomes, modules, license, hashes
+- Credits are **descriptive metadata** — never auto-entitlements
+- Release = pinned revision; learners assess against that revision
 
 ---
 
-## 📚 Licensing Stack
+## AI + BYOK (§4)
 
-| Tier    | License      | Use Case                        |
-|---------|--------------|---------------------------------|
-| Tier 1  | PUCL-1.0     | Copyleft remixing with attribution |
-| Tier 2  | CC BY-NC-SA  | Non-commercial remixing         |
-| Tier 3  | CC BY-NC-ND  | Protected, non-remixable content|
-
----
-
-## 🧩 Tech Stack Overview
-
-| Layer         | Stack                                   |
-|---------------|-----------------------------------------|
-| Hosting       | GitHub Pages / Cloudflare / SaaS        |
-| AI            | Ollama (LLaMA, Mistral)                |
-| Content       | Markdown + Hugo/Zola                    |
-| Credentialing | OpenSea / Thirdweb / ERC-721            |
-| Governance    | Self-service dashboard                  |
-| Licensing     | PUCL-1.0 + CC tiers                     |
+- No central provider: hosted, OpenAI-compatible, Ollama / llama.cpp, institutional gateways
+- Keys in memory by default; never in repos, peers, assets, or logs
+- Pipeline: plan → lessons → Marp slides → assessments → media → validation → human review
+- Tutor: course-grounded, cites sources, hints before solutions
 
 ---
 
-## 🚀 Roadmap
+## Assessment with Pipelight (§5)
 
-| Phase   | Milestone                                      |
-|---------|------------------------------------------------|
-| Q3 2025 | Launch AI syllabus/content APIs                |
-| Q4 2025 | Automated evaluation, NFT credentialing        |
-| Q1 2026 | Custom branding, compliance features           |
-| Q2 2026 | Global expansion, analytics modules            |
+- Portable job schema → adapter → pipeline steps
+- Restricted runner (WASM/Rust): no network, capped time/memory
+- Report: hashes, revisions, outcomes, score + rationale, signer, timestamp
+- Execution proves tests passed — **authorization stays human**
 
 ---
 
-## 🌐 Impact & Philosophy
+## P2P, gamification, credentials (§6–§8)
 
-- **No gatekeepers**: Students are fully autonomous  
-- **AI-powered learning, assessment, credentialing**  
-- **Continuous innovation, robust support**  
-- **Every asset is verifiable and customizable**
+- Offline queues; per-type conflict rules — **never last-write-wins** for academic records
+- XP rewards activity; **competency requires evidence**; credits need policy
+- Ed25519 signed credentials; community vs institution vs legally-recognized
+- Revocation is append-only; **no token, no cryptocurrency**
 
 ---
 
-## 🏛️ Platform Map (Detailed)
+## Deployment & roadmap (§9–§12)
 
-<div class="mermaid">
-flowchart TD
-  subgraph Student
-    S1(Student)
-  end
-  S1 --> S2[Self-Service Dashboard]
-  S2 --> S3[AI Syllabus Creation]
-  S2 --> S4[Content Generation]
-  S2 --> S5[Automated Evaluation]
-  S2 --> S6[NFT Credentialing]
-  S2 --> S7[Feedback & Support]
-  S3 --> S8[Ollama AI Engine]
-  S4 --> S8
-  S5 --> S8
-  S6 --> S9[Blockchain/IPFS]
-  S2 -.-> S10[License Selection]
-</div>
+- Profile A personal → B community (+PocketBase/P2P) → C institutional (+issuers)
+- Phase I local prototype → II AI factory → III Pipelight → IV P2P → V credentials → VI governance
+- MVP: one Fossil course, one HTML client, quiz engine, BYOK, validation, signed results
 
 ---
 
 ## Thank You
 
-- Questions?  
-- [sageedumint.com](https://sageedumint.com)  
-- Student-Only, AI-Powered, Modular Education
+- Spec: `white_paper.md` (from `Vidyarthi_White_Paper.docx`)
+- Prototype: `public/vidyarthi.html` · sample: `courses/cybersecurity-101/`
+- Open, inspectable, and portable by design

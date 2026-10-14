@@ -1,0 +1,5 @@
+{
+  "rubric_id": "cybersecurity-101-v1",
+  "weights": { "cia-basics": 1.0, "attack-surface": 1.0 },
+  "pass_threshold": 60
+}

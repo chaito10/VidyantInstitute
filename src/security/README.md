@@ -1,6 +1,6 @@
 # Security & Compliance Layer
 
-This module handles security and compliance for SageEduMint.
+This module handles security and compliance for Vidyarthi (§10; scoped roles in §11.1).
 
 ## Example Usage
 

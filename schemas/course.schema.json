@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Vidyarthi course.json v1.0 (§3.3)",
+  "type": "object",
+  "required": ["schema_version", "id", "title", "version", "language"],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "id": { "type": "string", "pattern": "^vidyarthi:[a-z0-9-]+:[a-z0-9-]+$" },
+    "title": { "type": "string", "minLength": 1 },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "language": { "type": "string", "minLength": 2 },
+    "level": { "type": "string" },
+    "credits": {
+      "type": "object",
+      "required": ["value", "system"],
+      "properties": {
+        "value": { "type": "number" },
+        "system": { "type": "string" }
+      },
+      "description": "Descriptive metadata only — must not automatically create an academic entitlement (§3.3)"
+    },
+    "outcomes": { "type": "array", "items": { "type": "string" } },
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "path"],
+        "properties": { "id": { "type": "string" }, "path": { "type": "string" } }
+      }
+    }
+  }
+}

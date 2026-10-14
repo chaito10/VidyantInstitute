@@ -1,0 +1,32 @@
+{
+  "lesson": "foundations",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "multiple-choice",
+      "prompt": "What does 'local-first' mean in Vidyarthi?",
+      "choices": [
+        "Every deployment must run all six layers as separate servers",
+        "Core learning works offline; peers sync when available",
+        "All data lives on a central server"
+      ],
+      "answer": "Core learning works offline; peers sync when available",
+      "explanation": "§1.3 / §2: layers are logical; a minimal node is browser + local Fossil + local assessment + PocketBase."
+    },
+    {
+      "id": "q2",
+      "type": "multiple-choice",
+      "prompt": "Which component is the canonical authority for course history?",
+      "choices": ["PocketBase", "Fossil course repositories", "The AI provider"],
+      "answer": "Fossil course repositories",
+      "explanation": "§3 / §9.2: PocketBase is coordination only; history lives in Fossil repos."
+    },
+    {
+      "id": "q3",
+      "type": "short-answer",
+      "prompt": "Name the assessment orchestrator and the portable execution format.",
+      "answer_keywords": ["pipelight", "wasm", "webassembly", "rust"],
+      "explanation": "§5: Pipelight pipelines coordinate; Rust/WASM execute under restrictions."
+    }
+  ]
+}

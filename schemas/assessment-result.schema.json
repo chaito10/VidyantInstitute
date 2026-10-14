@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Vidyarthi assessment result report v1.0 (§5.5)",
+  "type": "object",
+  "required": ["submission_hash", "course_revision", "test_version", "rubric_version", "runner", "runtime_version", "limits", "test_outcomes", "score", "grading_rationale", "signing_identity", "timestamp"],
+  "properties": {
+    "submission_hash": { "type": "string" },
+    "course_revision": { "type": "string" },
+    "test_version": { "type": "string" },
+    "rubric_version": { "type": "string" },
+    "runner": { "type": "string" },
+    "runtime_version": { "type": "string" },
+    "limits": { "type": "object" },
+    "test_outcomes": { "type": "array", "items": { "type": "object" } },
+    "score": { "type": "number" },
+    "grading_rationale": { "type": "string" },
+    "signing_identity": { "type": "string" },
+    "timestamp": { "type": "integer" }
+  }
+}
