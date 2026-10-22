@@ -32,7 +32,7 @@ These are current decisions, not unanswered questions:
 - Should high-impact capabilities require multiple independent approvals?
 - How are issuer authority and legal/institutional recognition represented without permanent user ranks?
 
-**Your decision:** [Your answer here]
+**Your decision:** Go with Flat participants no authority at all
 
 ### Q2. Scope of the first MVP
 
@@ -42,7 +42,7 @@ These are current decisions, not unanswered questions:
 - Which learner level or subject will be used for the first demonstrator?
 - Which proposed components are mandatory at MVP launch, and which remain prototypes or future phases?
 
-**Your decision:** [Your answer here]
+**Your decision:** start as first ai generated MOOC that is made of micro learning content and keep same format throuought only cource requirement  design is done by peer 
 
 ### Q3. Meaning of employer-recognized credentials
 
@@ -51,7 +51,7 @@ These are current decisions, not unanswered questions:
 - Should credentials contain evidence links, reproducible test results, project artefacts, rubric versions, assessor attestations, and confidence/limitations?
 - How should the platform label community-issued credentials versus employer-endorsed, institution-issued, accredited, or legally recognized qualifications?
 
-**Your decision:** [Your answer here]
+**Your decision:** real project , assignments, and validation from goverment and industries 
 
 ### Q4. Name and brand transition
 
@@ -59,7 +59,7 @@ These are current decisions, not unanswered questions:
 - Should the repository name `VidyantInstitute` remain even if the eventual product name changes?
 - What event or milestone triggers a canonical-name decision?
 
-**Your decision:** [Your answer here]
+**Your decision:** name it to 'Vidyarthi'
 
 ## 3. Academic model and learning pathways
 
@@ -70,7 +70,7 @@ These are current decisions, not unanswered questions:
 - Can participants enter at any level based on demonstrated competency rather than prior certificates?
 - Who defines prerequisites, equivalencies, and progression rules?
 
-**Your decision:** [Your answer here]
+**Your decision:** all credits earned are open blocchian and can be verified by any one , mutiple entry and exit points independent of there prioir certification, ammount of credits can formalized into programs 
 
 ### Q6. Curriculum governance
 
@@ -79,7 +79,7 @@ These are current decisions, not unanswered questions:
 - Is there a distinction between community curriculum approval and employer/institution endorsement?
 - What appeal path exists when a course or assessment is rejected?
 
-**Your decision:** [Your answer here]
+**Your decision:** individual peers, nthing required authourization or verification, peer can opt in for open peer review of theire work such as paper theieses as open comment if he/she wishes but not mendetory ai evalauation is enough
 
 ### Q7. Credits and qualifications
 
@@ -89,7 +89,7 @@ The current specification says credits are descriptive unless an authorized poli
 - How are competencies composed into larger certificates or qualifications?
 - Who owns equivalency mappings across communities and external frameworks?
 
-**Your decision:** [Your answer here]
+**Your decision:** descriptive credits and quatitaive should be genrated for job scrutiniy or any other compiled through progarm and final result given
 
 ## 4. Assessment, AI, and evidence
 
@@ -100,7 +100,7 @@ The current specification says credits are descriptive unless an authorized poli
 - How will rubric changes, appeals, re-submissions, suspected cheating, and assessor conflicts be handled?
 - Should a learner be allowed to challenge an AI-generated score before it becomes part of an issued credential?
 
-**Your decision:** [Your answer here]
+**Your decision:** all assement should be automated 
 
 ### Q9. Agentic AI responsibilities
 
@@ -109,7 +109,7 @@ The current specification says credits are descriptive unless an authorized poli
 - How will generated content, code, tests, and claims be traced to model/provider/version and reviewed?
 - What limits apply to cost, rate, privacy, data retention, and local-model operation?
 
-**Your decision:** [Your answer here]
+**Your decision:** no human intervention is required untill and unless grivences are raised 
 
 ### Q10. Evidence quality and reproducibility
 
@@ -118,7 +118,7 @@ The current specification says credits are descriptive unless an authorized poli
 - How will results be reproduced when the execution environment, model, or dependencies change?
 - What quality gates prevent fabricated references, tests that merely pass themselves, or low-quality AI-generated course material?
 
-**Your decision:** [Your answer here]
+**Your decision:** its blockchain , human life time
 
 ## 5. Identity, privacy, trust, and governance
 
@@ -129,7 +129,7 @@ The current specification says credits are descriptive unless an authorized poli
 - What evidence binds a person or organization to an issuer key when that binding is required?
 - What happens after key loss, compromise, rotation, or transfer of an organizational issuer?
 
-**Your decision:** [Your answer here]
+**Your decision:** make it as wallet, one uniqe per person
 
 ### Q12. Capability lifecycle and security
 
@@ -138,7 +138,7 @@ The current specification says credits are descriptive unless an authorized poli
 - How are replay, privilege escalation, collusion, Sybil activity, and conflicting capability grants prevented or detected?
 - Which actions require short-lived capabilities or multi-party approval?
 
-**Your decision:** [Your answer here]
+**Your decision:** web3 standsrds for security 
 
 ### Q13. Data privacy and portability
 
@@ -147,7 +147,7 @@ The current specification says credits are descriptive unless an authorized poli
 - How should confidential research, unpublished papers, minors' data, and sensitive submissions be handled?
 - Which export format should learners use to back up and migrate their data?
 
-**Your decision:** [Your answer here]
+**Your decision:** all records are local verification ZK-APPS
 
 ### Q14. Peer network versus optional central services
 
@@ -156,7 +156,7 @@ The current specification says credits are descriptive unless an authorized poli
 - Is Fossil plus optional libp2p still the preferred approach, or should an alternative be benchmarked before implementation?
 - What are the acceptance tests for recovery, conflict resolution, peer discovery, spam resistance, and network outages?
 
-**Your decision:** [Your answer here]
+**Your decision:** yes fossil +libp2p is preffered appoach 
 
 ### Q15. Governance model
 
@@ -165,7 +165,7 @@ The current specification says credits are descriptive unless an authorized poli
 - What stops wealth, popularity, or compute ownership from creating de facto permanent hierarchy?
 - Is a replicated ledger ever needed, and what concrete failure of signed append-only records would justify one?
 
-**Your decision:** [Your answer here]
+**Your decision:** No goverence model 
 
 ## 6. MVP delivery and sustainability
 
@@ -176,7 +176,7 @@ The current specification says credits are descriptive unless an authorized poli
 - What are the target limits for startup time, storage, memory, offline support, and ordinary hardware?
 - What security review is required before running untrusted submissions?
 
-**Your decision:** [Your answer here]
+**Your decision:** phone or laptop,  complete cource 
 
 ### Q17. Deployment and operational ownership
 
@@ -185,7 +185,7 @@ The current specification says credits are descriptive unless an authorized poli
 - What backup, restore, update, and migration procedures are required?
 - What is the minimum support/maintenance promise for course packages and credential verification?
 
-**Your decision:** [Your answer here]
+**Your decision:** no warrenty or liability
 
 ### Q18. Sustainability and access
 
@@ -194,7 +194,7 @@ The current specification says credits are descriptive unless an authorized poli
 - What safeguards prevent paid services from becoming a gate to learning or credential verification?
 - Who pays for hosted AI or compute when the learner does not bring their own provider?
 
-**Your decision:** [Your answer here]
+**Your decision:** peer or student
 
 ## 7. Standards, interoperability, and recognition
 
@@ -204,7 +204,7 @@ The current specification says credits are descriptive unless an authorized poli
 - Which integrations are required for the initial employer pilot?
 - What export/import tests define practical interoperability?
 
-**Your decision:** [Your answer here]
+**Your decision:** web3, walltes, ZK-apps, fossil, rust
 
 ### Q20. Employer feedback loop
 
@@ -212,7 +212,7 @@ The current specification says credits are descriptive unless an authorized poli
 - What feedback can employers provide, and can participants contest or hide it?
 - Will there be a pilot with named employers or industry partners before claiming recognition?
 
-**Your decision:** [Your answer here]
+**Your decision:** portal to make query for search
 
 ## 8. Questions to resolve after the MVP proves value
 
@@ -222,7 +222,7 @@ The current specification says credits are descriptive unless an authorized poli
 - What threat model and governance membership would a ledger need to satisfy?
 - What evidence would justify the maintenance, privacy, and recovery costs of consensus?
 
-**Your decision:** [Your answer here]
+**Your decision:** zero overhead and if there bared by student
 
 ### Q22. Research and doctoral pathways
 
@@ -230,7 +230,7 @@ The current specification says credits are descriptive unless an authorized poli
 - How can external experts participate without receiving permanent platform-wide authority?
 - How do research achievements map to competency evidence while clearly distinguishing platform-issued credentials from formal PhD degrees?
 
-**Your decision:** [Your answer here]
+**Your decision:** if work is equivalent to phd it is a phd
 
 ### Q23. Open-source project boundaries
 
@@ -238,7 +238,7 @@ The current specification says credits are descriptive unless an authorized poli
 - Which root-level spec convention will be used (for example, design spec, architecture decision records, or technical note)?
 - Which white papers are planned, and what claims/evidence/review process must each include?
 
-**Your decision:** [Your answer here]
+**Your decision:** this prtocol and tooling required to any one to run complete module this minimal abstarct modular and BOYK for ai
 
 ## 9. Cross-document consistency checklist
 
