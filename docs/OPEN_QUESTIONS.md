@@ -1,266 +1,265 @@
-# Vidyarthi — Unanswered Questions and Decision Log
+# Vidyarthi — Open Questions and Decision Log
 
-> **Purpose:** Working checklist for questions that remain unresolved in the Vidyarthi university project. Fill in the **Your decision** fields when ready. Do not treat proposals or earlier working names as canonical unless explicitly approved.
->
-> **Context:** The repository currently uses the names Vidyarthi and VidyantInstitute, with SageEduMint and OpenDAO University retained as working names/aliases while the final canonical name is deferred. This checklist reflects the latest confirmed direction shared in project discussions as of 22 October 2026.
+**Updated:** 22 October 2026  
+**Purpose:** Record the user's current decisions and keep unresolved contradictions visible. The answers below are not silently converted into technical or legal guarantees.
 
-## How to use this file
+## Confirmed current direction
 
-- Replace `[Your answer here]` with a decision, or write `Defer` with a reason.
-- Keep disputed or contradictory decisions visible until resolved.
-- Once a decision is approved, update the relevant specification, implementation, tests, and changelog in the same change.
-- Do not treat a credential as employer-recognized, institutionally accredited, or legally recognized unless the relevant recognition has actually been established.
+- [x] Canonical product name: **Vidyarthi**.
+- [x] Long-term scope: Foundation through PhD-level learning.
+- [x] First product: AI-generated MOOC made of consistently formatted micro-learning content.
+- [x] MVP: a complete course/module usable on a phone or laptop.
+- [x] Course publishing: individual peers can design/publish content without mandatory authorization or peer review.
+- [x] Peer review: optional, open, and opt-in for papers, theses, and other work.
+- [x] Assessment: automated by default; human involvement only after a grievance.
+- [x] Identity direction: wallet intended to be unique per person.
+- [x] Preferred peer distribution: Fossil SCM + libp2p.
+- [x] Technology interests: Web3, wallets, ZK apps, Fossil, Rust, and BYOK AI.
+- [x] Credentials/evidence priority: real projects, assignments, and eventual government/industry validation.
+- [x] Program pathways: multiple entry/exit points; accumulated credits may be compiled into programs.
+- [x] Employer discovery: a portal for employers to search/query competency evidence.
+- [x] Protocol direction: minimal, abstract, modular, and usable by others to run a complete module.
 
-## 1. Confirmed direction — do not reopen without reason
+## Q1. Flat participation and “no authority”
 
-These are current decisions, not unanswered questions:
+**Decision given:** “Go with Flat participants no authority at all.”
 
-- [x] **Naming:** Decide the final canonical name later; retain existing names as working titles/aliases for now.
-- [x] **Scope:** Long-term vision spans Foundation through PhD; begin with a small, verifiable MVP.
-- [x] **Credentials:** Prioritize employer-recognized skills and competency credentials.
-- [x] **Participant model:** Flat participant model, with temporary, capability-based permissions rather than permanent rank-based roles.
+**Still unresolved**
+- Does “no authority” mean no permanent rank, or does it also rule out any temporary issuer, assessor, moderator, or grievance-resolution capability?
+- If no participant can authorize or validate anything, how are government/industry attestations and wallet uniqueness represented?
+- Who can respond to fraud, malicious course packages, abuse, or a grievance without creating a governance or authority mechanism?
 
-## 2. Blocking design contradictions
+**Do not implement:** Do not replace static roles with an invented capability-granting policy. The current target rejects permanent hierarchy, but the exact authorization model is unresolved.
 
-### Q1. Flat participants versus role-based authorization
+## Q2. First MVP and course format
 
-**Why this is open:** The current `white_paper.md`, `src/vidyarthi/governance.py`, README, and credential logic describe explicit roles such as course reviewer, assessment operator, and credential issuer. The latest direction is a flat participant model with temporary, capability-based permissions.
+**Decision given:** Start with the first AI-generated MOOC, built from micro-learning content with a consistent format throughout; course requirements/design are peer-designed.
 
-**Questions**
-- What grants a capability: self-declaration, peer delegation, evidence, community policy, or issuer authorization?
-- Who may grant, scope, expire, suspend, or revoke a capability?
-- Should high-impact capabilities require multiple independent approvals?
-- How are issuer authority and legal/institutional recognition represented without permanent user ranks?
+**Still unresolved**
+- What subject and learner level should the first MOOC target?
+- What exact fields are mandatory in every micro-learning module?
+- Which AI-generated artifacts are accepted automatically, and what automated quality gates must pass before publication?
+- What is the end-to-end MVP acceptance test on phone and laptop?
 
-**Your decision:** Go with Flat participants no authority at all
+## Q3. Employer-facing credentials
 
-### Q2. Scope of the first MVP
+**Decision given:** Use real projects, assignments, and validation from government and industries.
 
-**Why this is open:** The long-term vision spans Foundation through PhD, but the repository's MVP is a local learning loop with course packages, quizzes, AI assistance, assessment, and credential verification.
+**Still unresolved**
+- Which government bodies or industry partners, if any, are actual participants? None are assumed to be committed.
+- What counts as validation: endorsement, an assessment rubric, a signed attestation, or hiring outcomes?
+- How will the system distinguish community-issued, employer-endorsed, government-validated, accredited, and legally recognized credentials?
 
-- Which single learning journey must work end-to-end in the MVP?
-- Which learner level or subject will be used for the first demonstrator?
-- Which proposed components are mandatory at MVP launch, and which remain prototypes or future phases?
+## Q4. Naming
 
-**Your decision:** start as first ai generated MOOC that is made of micro learning content and keep same format throuought only cource requirement  design is done by peer 
+**Decision given:** Name the product **Vidyarthi**.
 
-### Q3. Meaning of employer-recognized credentials
+**Decision updated:** Vidyarthi is now the canonical working product name. `VidyantInstitute` remains the repository name for now; `SageEduMint` and `OpenDAO University` are historical/working names.
 
-- What evidence makes a skill or competency credential credible to employers?
-- Will employer recognition start through a small advisory/pilot group, hiring partners, practical challenge results, independent assessors, or another route?
-- Should credentials contain evidence links, reproducible test results, project artefacts, rubric versions, assessor attestations, and confidence/limitations?
-- How should the platform label community-issued credentials versus employer-endorsed, institution-issued, accredited, or legally recognized qualifications?
+**Still unresolved:** Should the repository name eventually be changed? This is not a blocker for the MVP.
 
-**Your decision:** real project , assignments, and validation from goverment and industries 
+## Q5. Pathways and credits
 
-### Q4. Name and brand transition
+**Decision given:** Credits should be on an open blockchain and verifiable by anyone; learners have multiple entry/exit points independent of prior certification; accumulated credits may be formalized into programs.
 
-- Which names remain historical aliases, and which should appear in the UI or documentation during the transition?
-- Should the repository name `VidyantInstitute` remain even if the eventual product name changes?
-- What event or milestone triggers a canonical-name decision?
+**Still unresolved**
+- Which blockchain or credential/record format is intended?
+- Are “credits” learning-effort units, competency measures, or formal academic credits? These are not interchangeable.
+- Who defines program thresholds and equivalencies if the platform has no governance or authorization model?
+- How can open verification avoid publishing personal or sensitive learning records?
 
-**Your decision:** name it to 'Vidyarthi'
+## Q6. Curriculum governance and peer review
 
-## 3. Academic model and learning pathways
+**Decision given:** Individuals may publish without required authorization or verification. Peer review of papers/theses is optional and may use open comments; AI evaluation is sufficient as the default.
 
-### Q5. Foundation-to-PhD pathway structure
+**Still unresolved**
+- What automated validation is mandatory for course packages, assessments, generated references, and executable content?
+- Can an author opt out of peer review while still making a credential claim based on the work?
+- How are corrections, plagiarism allegations, and unsafe or malicious material handled without a governance mechanism?
 
-- How should the platform represent the stages Foundation, school-level learning, undergraduate, postgraduate, research, and PhD-level work?
-- Are these formal programs, competency maps, optional pathways, or just discovery labels?
-- Can participants enter at any level based on demonstrated competency rather than prior certificates?
-- Who defines prerequisites, equivalencies, and progression rules?
+## Q7. Credits and compiled results
 
-**Your decision:** all credits earned are open blocchian and can be verified by any one , mutiple entry and exit points independent of there prioir certification, ammount of credits can formalized into programs 
+**Decision given:** Generate descriptive and quantitative measures that can be compiled through a program into a final result for job scrutiny or other purposes.
 
-### Q6. Curriculum governance
+**Still unresolved**
+- Define each quantitative measure, its units, weighting, and reproducibility.
+- Who chooses program compilation rules, and can employers interpret them consistently?
+- How are changed rubrics or reassessed work reflected in historical results?
 
-- Who can propose, review, publish, fork, deprecate, and archive course revisions?
-- Which decisions require independent peer review or subject-matter review?
-- Is there a distinction between community curriculum approval and employer/institution endorsement?
-- What appeal path exists when a course or assessment is rejected?
+## Q8. Assessment
 
-**Your decision:** individual peers, nthing required authourization or verification, peer can opt in for open peer review of theire work such as paper theieses as open comment if he/she wishes but not mendetory ai evalauation is enough
+**Decision given:** All assessment should be automated.
 
-### Q7. Credits and qualifications
+**Still unresolved**
+- Which assessment types can be reliably automated, and what happens when the model cannot grade confidently?
+- What prevents generated tests from being fabricated, self-serving, or easy to game?
+- How are false positives, accessibility needs, and appeals handled?
 
-The current specification says credits are descriptive unless an authorized policy assigns value.
+## Q9. Human intervention and grievances
 
-- Should the MVP omit credit totals entirely, retain descriptive credits, or model workload/credit systems from the start?
-- How are competencies composed into larger certificates or qualifications?
-- Who owns equivalency mappings across communities and external frameworks?
+**Decision given:** No human intervention is required until a grievance is raised.
 
-**Your decision:** descriptive credits and quatitaive should be genrated for job scrutiniy or any other compiled through progarm and final result given
+**Still unresolved**
+- Who receives and decides grievances if the system has no governance or authority model?
+- What evidence, response times, appeal stages, and temporary safeguards apply?
+- Can a disputed result be marked as contested without silently deleting the original evidence?
 
-## 4. Assessment, AI, and evidence
+## Q10. Evidence and retention
 
-### Q8. Assessment modes and human oversight
+**Decision given:** “It's blockchain, human life time.”
 
-- Which assessments can be fully automated, and which require human review?
-- What level of independent review is required for high-stakes outcomes?
-- How will rubric changes, appeals, re-submissions, suspected cheating, and assessor conflicts be handled?
-- Should a learner be allowed to challenge an AI-generated score before it becomes part of an issued credential?
+**Interpretation not yet confirmed:** This may mean blockchain-backed evidence retained for the person's lifetime.
 
-**Your decision:** all assement should be automated 
+**Still unresolved**
+- Which data is on-chain, and which stays local or encrypted/off-chain?
+- Does “lifetime” mean the learner's lifetime, the credential's lifetime, or permanent retention?
+- How do key loss, correction, revocation, privacy, and deletion requests work with immutable records?
 
-### Q9. Agentic AI responsibilities
+## Q11. Wallet identity
 
-- Which tasks may AI agents perform autonomously: drafting courses, generating tests, reviewing submissions, conducting oral assessments, recommending pathways, or proposing credentials?
-- Which actions always require a human or authorized capability-holder?
-- How will generated content, code, tests, and claims be traced to model/provider/version and reviewed?
-- What limits apply to cost, rate, privacy, data retention, and local-model operation?
+**Decision given:** A wallet, one unique wallet per person.
 
-**Your decision:** no human intervention is required untill and unless grivences are raised 
+**Still unresolved**
+- How is one-person-one-wallet established without collecting excessive identity data or introducing a central authority?
+- Are pseudonymous wallets permitted? How are wallet recovery, key rotation, compromise, and succession handled?
+- What evidence, if any, links a wallet to a legal person for employer/government validation?
 
-### Q10. Evidence quality and reproducibility
+## Q12. Web3 security
 
-- What is the minimum evidence bundle for a competency credential?
-- How long must assessment artefacts and rubrics remain available?
-- How will results be reproduced when the execution environment, model, or dependencies change?
-- What quality gates prevent fabricated references, tests that merely pass themselves, or low-quality AI-generated course material?
+**Decision given:** Use Web3 standards for security.
 
-**Your decision:** its blockchain , human life time
+**Still unresolved**
+- Select the concrete wallet, signature, key-management, credential, and ZK proof standards.
+- Define a threat model covering replay, malicious modules, key theft, Sybil identities, privacy leakage, and compromised dependencies.
+- Which operations must be local-verifiable, and what happens when revocation information is unavailable offline?
 
-## 5. Identity, privacy, trust, and governance
+## Q13. Local records and ZK verification
 
-### Q11. Identity model
+**Decision given:** All records are local; verification uses ZK apps.
 
-- Is an account or persistent public key needed for ordinary learning?
-- Can participants learn and submit work pseudonymously?
-- What evidence binds a person or organization to an issuer key when that binding is required?
-- What happens after key loss, compromise, rotation, or transfer of an organizational issuer?
+**Blocking tension:** Q5 calls for open-blockchain credits verifiable by anyone, while Q10 suggests lifetime blockchain evidence. These can conflict with local-only records and privacy.
 
-**Your decision:** make it as wallet, one uniqe per person
+**Still unresolved**
+- Does “all records local” mean raw personal records remain local while users selectively publish proofs/commitments?
+- Which facts should a ZK proof reveal, and which must remain private?
+- How are public verification, revocation, correction, and data minimization handled?
 
-### Q12. Capability lifecycle and security
+## Q14. Peer network
 
-- What is the capability format and scope (action, resource, audience, expiry, delegation, limits)?
-- Should capabilities be signed, locally verifiable, and revocable?
-- How are replay, privilege escalation, collusion, Sybil activity, and conflicting capability grants prevented or detected?
-- Which actions require short-lived capabilities or multi-party approval?
+**Decision given:** Fossil SCM + libp2p is preferred.
 
-**Your decision:** web3 standsrds for security 
+**Still unresolved**
+- Which data is synchronized through Fossil and which messages/services use libp2p?
+- What are the MVP offline and sync-conflict acceptance tests?
+- How are peers discovered and spam/malicious peers handled without a central authority?
 
-### Q13. Data privacy and portability
+## Q15. Governance
 
-- Which records are local-only by default, and which can sync to peers?
-- What are the rules for deletion requests when copies or credential evidence have been replicated?
-- How should confidential research, unpublished papers, minors' data, and sensitive submissions be handled?
-- Which export format should learners use to back up and migrate their data?
+**Decision given:** “No governance model.”
 
-**Your decision:** all records are local verification ZK-APPS
+**Blocking tension:** The project also expects grievances, employer/government validation, open credentials, automated assessment, and correction/revocation of evidence. These require defined procedures even if the project rejects platform-wide governance.
 
-### Q14. Peer network versus optional central services
+**Still unresolved**
+- Does “no governance” mean no voting/DAO, no central administrators, or no shared policy at all?
+- Can protocol maintainers publish software updates without controlling learner records or credentials?
+- What minimal process, if any, exists for security incidents, grievances, and incompatible protocol versions?
 
-- Which functions must work fully offline?
-- Which functions may use a hosted coordination service without becoming dependent on it?
-- Is Fossil plus optional libp2p still the preferred approach, or should an alternative be benchmarked before implementation?
-- What are the acceptance tests for recovery, conflict resolution, peer discovery, spam resistance, and network outages?
+## Q16. MVP acceptance criteria
 
-**Your decision:** yes fossil +libp2p is preffered appoach 
+**Decision given:** The complete course should work on a phone or laptop.
 
-### Q15. Governance model
+**Still unresolved**
+- Which phone/browser and laptop/browser combinations are supported first?
+- Must the course work fully offline after initial download?
+- What is the minimum complete module: content, quiz, practical assignment, automated result, local evidence, and export?
+- What resource limits and automated test suite define “works”?
 
-- How are shared policies proposed and changed in a flat participant system?
-- Is governance per course, per community, per issuer, or platform-wide?
-- What stops wealth, popularity, or compute ownership from creating de facto permanent hierarchy?
-- Is a replicated ledger ever needed, and what concrete failure of signed append-only records would justify one?
+## Q17. Warranty and liability
 
-**Your decision:** No goverence model 
+**Decision given:** No warranty or liability.
 
-## 6. MVP delivery and sustainability
+**Still unresolved**
+- Draft appropriate terms and disclaimers with qualified legal review for the jurisdictions where the product is offered.
+- Which legal obligations or liabilities cannot be excluded by contract?
+- How are third-party AI providers, user-generated content, security issues, and credential misrepresentation addressed?
 
-### Q16. MVP acceptance criteria
+**Caution:** A “no warranty/liability” statement does not itself guarantee that all liability can legally be excluded.
 
-- What is the one command or documented sequence that demonstrates a complete local learning and assessment cycle?
-- Which tests must pass before calling the MVP usable?
-- What are the target limits for startup time, storage, memory, offline support, and ordinary hardware?
-- What security review is required before running untrusted submissions?
+## Q18. Costs and sustainability
 
-**Your decision:** phone or laptop,  complete cource 
+**Decision given:** Costs are borne by peers or students.
 
-### Q17. Deployment and operational ownership
+**Still unresolved**
+- Which costs are paid by students: AI inference, storage, blockchain fees, network bandwidth, hosting, or all of them?
+- Must learning, local verification, and basic course access remain possible at zero monetary cost?
+- Can BYOK/local AI avoid mandatory provider spending, and how are costs disclosed before a task runs?
 
-- Which deployment profile (personal, community, institutional) is the first supported target?
-- Who hosts any shared services, and what data do they retain?
-- What backup, restore, update, and migration procedures are required?
-- What is the minimum support/maintenance promise for course packages and credential verification?
+## Q19. Standards and stack
 
-**Your decision:** no warrenty or liability
+**Decision given:** Web3, wallets, ZK apps, Fossil, and Rust.
 
-### Q18. Sustainability and access
+**Still unresolved**
+- Select specific interoperable standards rather than treating these technology categories as standards themselves.
+- Define stable module, assessment, evidence, wallet, and credential interfaces.
+- Which components are required for the first release, and which remain optional adapters?
 
-- Which services must remain free to use and verify?
-- Which costs can be covered by grants, donations, institutional hosting, employer partnerships, or optional paid services?
-- What safeguards prevent paid services from becoming a gate to learning or credential verification?
-- Who pays for hosted AI or compute when the learner does not bring their own provider?
+## Q20. Employer search portal
 
-**Your decision:** peer or student
+**Decision given:** Build a portal that lets employers submit search queries.
 
-## 7. Standards, interoperability, and recognition
+**Still unresolved**
+- What can employers search: public portfolio data, learner-approved evidence, credentials, or private records?
+- Does a learner approve disclosure for each query or profile?
+- How are ranking bias, stale evidence, and misleading credential labels avoided?
 
-### Q19. External formats and standards
+## Q21. Blockchain overhead
 
-- Which existing standards should be evaluated for verifiable credentials, learning outcomes, skills, assessments, accessibility, and course metadata?
-- Which integrations are required for the initial employer pilot?
-- What export/import tests define practical interoperability?
+**Decision given:** Zero overhead; if costs are borne, they should be borne by the student.
 
-**Your decision:** web3, walltes, ZK-apps, fossil, rust
+**Still unresolved**
+- Does “zero overhead” mean zero platform fee, zero gas fee, zero extra infrastructure, or negligible user effort?
+- Which chain or layer is intended, and how will fees be measured on ordinary phones?
+- Should blockchain be in the MVP, or should the MVP prove the learning loop before adding it?
 
-### Q20. Employer feedback loop
+## Q22. PhD-equivalent work
 
-- How will employers search and evaluate portfolios or competency evidence without turning the platform into a popularity ranking?
-- What feedback can employers provide, and can participants contest or hide it?
-- Will there be a pilot with named employers or industry partners before claiming recognition?
+**Decision given:** “If work is equivalent to PhD it is a PhD.”
 
-**Your decision:** portal to make query for search
+**Important distinction:** The platform can assess or document PhD-level work/competency, but that alone does not make it a formally awarded or legally recognized PhD degree. A formal degree claim depends on applicable law and a recognized awarding authority.
 
-## 8. Questions to resolve after the MVP proves value
+**Still unresolved**
+- Should the platform issue a “PhD-level competency/research portfolio” record, while formal-degree status is shown separately?
+- What standards and independent evaluation determine equivalence?
+- Which recognized institution or legally authorized body, if any, can confer the formal degree?
 
-### Q21. Blockchain and consensus
+## Q23. Protocol and tooling
 
-- What actual multi-party coordination requirement cannot be met by signatures, versioned repositories, and append-only logs?
-- What threat model and governance membership would a ledger need to satisfy?
-- What evidence would justify the maintenance, privacy, and recovery costs of consensus?
+**Decision given:** The protocol and tools should let anyone run a complete module; keep the design minimal, abstract, modular, and BYOK for AI.
 
-**Your decision:** zero overhead and if there bared by student
+**Still unresolved**
+- Define the module contract and the smallest reference runner.
+- Specify deterministic inputs/outputs, assessment interfaces, evidence export, and compatibility/versioning.
+- Define what “anyone can run” means for offline use, supported hardware, dependencies, and AI provider configuration.
 
-### Q22. Research and doctoral pathways
+## Cross-document update checklist
 
-- How are research proposals, supervisors/mentors, research ethics, peer review, reproducibility, and thesis milestones represented?
-- How can external experts participate without receiving permanent platform-wide authority?
-- How do research achievements map to competency evidence while clearly distinguishing platform-issued credentials from formal PhD degrees?
-
-**Your decision:** if work is equivalent to phd it is a phd
-
-### Q23. Open-source project boundaries
-
-- What belongs in this repository versus separate specifications, course repositories, deployment tooling, and reference implementations?
-- Which root-level spec convention will be used (for example, design spec, architecture decision records, or technical note)?
-- Which white papers are planned, and what claims/evidence/review process must each include?
-
-**Your decision:** this prtocol and tooling required to any one to run complete module this minimal abstarct modular and BOYK for ai
-
-## 9. Cross-document consistency checklist
-
-After answering questions, check all of the following for alignment:
-
-- [ ] `README.md` — current direction, MVP scope, setup instructions, links.
-- [ ] `white_paper.md` — vision, participant model, capability lifecycle, credential recognition caveats.
-- [ ] `Vidyarthi_White_Paper.docx` — archival source reconciled with the approved spec.
-- [ ] `src/vidyarthi/governance.py` — flat participant and scoped temporary capability design.
-- [ ] `src/security/` — authorization, revocation, validation, and audit policy.
-- [ ] `src/vidyarthi/credentials.py` — evidence, issuer authority, recognition labels, revocation.
-- [ ] `schemas/` — versioned course, assessment, result, capability, and credential schemas.
-- [ ] `public/vidyarthi.html` — learner-facing language does not imply unsupported recognition or completed features.
-- [ ] `courses/vidyarthi-101/` — orientation material matches the approved platform model.
-- [ ] Tests and CI — enforce the approved rules and reject contradictory states.
-- [ ] `CHANGELOG.md` — record approved behavioral and architectural changes.
+- [ ] README: canonical name Vidyarthi; first AI-generated micro-course; MVP on phone/laptop; no unsupported accreditation claims.
+- [ ] White paper: reflect flat participation, optional peer review, automated assessment with grievance path, wallet/ZK privacy, and the open blockchain/local-record tension.
+- [ ] `src/vidyarthi/governance.py`: do not rewrite until “no authority” versus issuer/appeal needs is resolved.
+- [ ] Credential/evidence code: keep competency evidence distinct from employer endorsement, government validation, accreditation, and formal degrees.
+- [ ] Schemas: define module, assessment, quantitative/descriptive credit, wallet, proof, and evidence formats.
+- [ ] Tests: complete module on phone/laptop; offline behavior; automated grading; grievance state; privacy-preserving verification.
+- [ ] Legal/terms review before making “no liability,” government validation, or PhD claims.
 
 ## Decision log
 
-| Date | Question | Decision | Status |
+| Date | Topic | Current decision | Status |
 |---|---|---|---|
-| 2026-10-22 | Naming | Final canonical name deferred; current names remain working titles | Confirmed |
-| 2026-10-22 | Scope | Foundation-to-PhD long-term vision; small MVP first | Confirmed |
-| 2026-10-22 | Credentials | Prioritize employer-recognized skills and competency credentials | Confirmed |
-| 2026-10-22 | Participants | Flat participants with temporary capability-based permissions | Confirmed |
+| 2026-10-22 | Name | Vidyarthi | Confirmed |
+| 2026-10-22 | MVP | AI-generated MOOC, consistent micro-learning modules, phone/laptop | Confirmed direction; acceptance criteria open |
+| 2026-10-22 | Participants | Flat participants; no authority intended | Ambiguous against validation and grievance requirements |
+| 2026-10-22 | Assessment | Automated by default; human involvement after grievance | Direction confirmed; appeal mechanism open |
+| 2026-10-22 | Credits | Descriptive and quantitative; compile into program results | Direction confirmed; definitions open |
+| 2026-10-22 | Verification | Open blockchain + local records + ZK apps | Architecture conflict unresolved |
+| 2026-10-22 | Peer network | Fossil SCM + libp2p | Preferred |
+| 2026-10-22 | Formal qualifications | PhD-level work should be recognized as equivalent | Formal degree versus competency status unresolved |

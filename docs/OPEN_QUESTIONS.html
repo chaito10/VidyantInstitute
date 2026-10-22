@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>-</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<h1 id="vidyarthi-open-questions-and-decision-log">Vidyarthi — Open
+Questions and Decision Log</h1>
+<p><strong>Updated:</strong> 22 October 2026<br />
+<strong>Purpose:</strong> Record the user’s current decisions and keep
+unresolved contradictions visible. The answers below are not silently
+converted into technical or legal guarantees.</p>
+<h2 id="confirmed-current-direction">Confirmed current direction</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="" />Canonical product name:
+<strong>Vidyarthi</strong>.</label></li>
+<li><label><input type="checkbox" checked="" />Long-term scope:
+Foundation through PhD-level learning.</label></li>
+<li><label><input type="checkbox" checked="" />First product:
+AI-generated MOOC made of consistently formatted micro-learning
+content.</label></li>
+<li><label><input type="checkbox" checked="" />MVP: a complete
+course/module usable on a phone or laptop.</label></li>
+<li><label><input type="checkbox" checked="" />Course publishing:
+individual peers can design/publish content without mandatory
+authorization or peer review.</label></li>
+<li><label><input type="checkbox" checked="" />Peer review: optional,
+open, and opt-in for papers, theses, and other work.</label></li>
+<li><label><input type="checkbox" checked="" />Assessment: automated by
+default; human involvement only after a grievance.</label></li>
+<li><label><input type="checkbox" checked="" />Identity direction:
+wallet intended to be unique per person.</label></li>
+<li><label><input type="checkbox" checked="" />Preferred peer
+distribution: Fossil SCM + libp2p.</label></li>
+<li><label><input type="checkbox" checked="" />Technology interests:
+Web3, wallets, ZK apps, Fossil, Rust, and BYOK AI.</label></li>
+<li><label><input type="checkbox" checked="" />Credentials/evidence
+priority: real projects, assignments, and eventual government/industry
+validation.</label></li>
+<li><label><input type="checkbox" checked="" />Program pathways:
+multiple entry/exit points; accumulated credits may be compiled into
+programs.</label></li>
+<li><label><input type="checkbox" checked="" />Employer discovery: a
+portal for employers to search/query competency evidence.</label></li>
+<li><label><input type="checkbox" checked="" />Protocol direction:
+minimal, abstract, modular, and usable by others to run a complete
+module.</label></li>
+</ul>
+<h2 id="q1.-flat-participation-and-no-authority">Q1. Flat participation
+and “no authority”</h2>
+<p><strong>Decision given:</strong> “Go with Flat participants no
+authority at all.”</p>
+<p><strong>Still unresolved</strong> - Does “no authority” mean no
+permanent rank, or does it also rule out any temporary issuer, assessor,
+moderator, or grievance-resolution capability? - If no participant can
+authorize or validate anything, how are government/industry attestations
+and wallet uniqueness represented? - Who can respond to fraud, malicious
+course packages, abuse, or a grievance without creating a governance or
+authority mechanism?</p>
+<p><strong>Do not implement:</strong> Do not replace static roles with
+an invented capability-granting policy. The current target rejects
+permanent hierarchy, but the exact authorization model is
+unresolved.</p>
+<h2 id="q2.-first-mvp-and-course-format">Q2. First MVP and course
+format</h2>
+<p><strong>Decision given:</strong> Start with the first AI-generated
+MOOC, built from micro-learning content with a consistent format
+throughout; course requirements/design are peer-designed.</p>
+<p><strong>Still unresolved</strong> - What subject and learner level
+should the first MOOC target? - What exact fields are mandatory in every
+micro-learning module? - Which AI-generated artifacts are accepted
+automatically, and what automated quality gates must pass before
+publication? - What is the end-to-end MVP acceptance test on phone and
+laptop?</p>
+<h2 id="q3.-employer-facing-credentials">Q3. Employer-facing
+credentials</h2>
+<p><strong>Decision given:</strong> Use real projects, assignments, and
+validation from government and industries.</p>
+<p><strong>Still unresolved</strong> - Which government bodies or
+industry partners, if any, are actual participants? None are assumed to
+be committed. - What counts as validation: endorsement, an assessment
+rubric, a signed attestation, or hiring outcomes? - How will the system
+distinguish community-issued, employer-endorsed, government-validated,
+accredited, and legally recognized credentials?</p>
+<h2 id="q4.-naming">Q4. Naming</h2>
+<p><strong>Decision given:</strong> Name the product
+<strong>Vidyarthi</strong>.</p>
+<p><strong>Decision updated:</strong> Vidyarthi is now the canonical
+working product name. <code>VidyantInstitute</code> remains the
+repository name for now; <code>SageEduMint</code> and
+<code>OpenDAO University</code> are historical/working names.</p>
+<p><strong>Still unresolved:</strong> Should the repository name
+eventually be changed? This is not a blocker for the MVP.</p>
+<h2 id="q5.-pathways-and-credits">Q5. Pathways and credits</h2>
+<p><strong>Decision given:</strong> Credits should be on an open
+blockchain and verifiable by anyone; learners have multiple entry/exit
+points independent of prior certification; accumulated credits may be
+formalized into programs.</p>
+<p><strong>Still unresolved</strong> - Which blockchain or
+credential/record format is intended? - Are “credits” learning-effort
+units, competency measures, or formal academic credits? These are not
+interchangeable. - Who defines program thresholds and equivalencies if
+the platform has no governance or authorization model? - How can open
+verification avoid publishing personal or sensitive learning
+records?</p>
+<h2 id="q6.-curriculum-governance-and-peer-review">Q6. Curriculum
+governance and peer review</h2>
+<p><strong>Decision given:</strong> Individuals may publish without
+required authorization or verification. Peer review of papers/theses is
+optional and may use open comments; AI evaluation is sufficient as the
+default.</p>
+<p><strong>Still unresolved</strong> - What automated validation is
+mandatory for course packages, assessments, generated references, and
+executable content? - Can an author opt out of peer review while still
+making a credential claim based on the work? - How are corrections,
+plagiarism allegations, and unsafe or malicious material handled without
+a governance mechanism?</p>
+<h2 id="q7.-credits-and-compiled-results">Q7. Credits and compiled
+results</h2>
+<p><strong>Decision given:</strong> Generate descriptive and
+quantitative measures that can be compiled through a program into a
+final result for job scrutiny or other purposes.</p>
+<p><strong>Still unresolved</strong> - Define each quantitative measure,
+its units, weighting, and reproducibility. - Who chooses program
+compilation rules, and can employers interpret them consistently? - How
+are changed rubrics or reassessed work reflected in historical
+results?</p>
+<h2 id="q8.-assessment">Q8. Assessment</h2>
+<p><strong>Decision given:</strong> All assessment should be
+automated.</p>
+<p><strong>Still unresolved</strong> - Which assessment types can be
+reliably automated, and what happens when the model cannot grade
+confidently? - What prevents generated tests from being fabricated,
+self-serving, or easy to game? - How are false positives, accessibility
+needs, and appeals handled?</p>
+<h2 id="q9.-human-intervention-and-grievances">Q9. Human intervention
+and grievances</h2>
+<p><strong>Decision given:</strong> No human intervention is required
+until a grievance is raised.</p>
+<p><strong>Still unresolved</strong> - Who receives and decides
+grievances if the system has no governance or authority model? - What
+evidence, response times, appeal stages, and temporary safeguards apply?
+- Can a disputed result be marked as contested without silently deleting
+the original evidence?</p>
+<h2 id="q10.-evidence-and-retention">Q10. Evidence and retention</h2>
+<p><strong>Decision given:</strong> “It’s blockchain, human life
+time.”</p>
+<p><strong>Interpretation not yet confirmed:</strong> This may mean
+blockchain-backed evidence retained for the person’s lifetime.</p>
+<p><strong>Still unresolved</strong> - Which data is on-chain, and which
+stays local or encrypted/off-chain? - Does “lifetime” mean the learner’s
+lifetime, the credential’s lifetime, or permanent retention? - How do
+key loss, correction, revocation, privacy, and deletion requests work
+with immutable records?</p>
+<h2 id="q11.-wallet-identity">Q11. Wallet identity</h2>
+<p><strong>Decision given:</strong> A wallet, one unique wallet per
+person.</p>
+<p><strong>Still unresolved</strong> - How is one-person-one-wallet
+established without collecting excessive identity data or introducing a
+central authority? - Are pseudonymous wallets permitted? How are wallet
+recovery, key rotation, compromise, and succession handled? - What
+evidence, if any, links a wallet to a legal person for
+employer/government validation?</p>
+<h2 id="q12.-web3-security">Q12. Web3 security</h2>
+<p><strong>Decision given:</strong> Use Web3 standards for security.</p>
+<p><strong>Still unresolved</strong> - Select the concrete wallet,
+signature, key-management, credential, and ZK proof standards. - Define
+a threat model covering replay, malicious modules, key theft, Sybil
+identities, privacy leakage, and compromised dependencies. - Which
+operations must be local-verifiable, and what happens when revocation
+information is unavailable offline?</p>
+<h2 id="q13.-local-records-and-zk-verification">Q13. Local records and
+ZK verification</h2>
+<p><strong>Decision given:</strong> All records are local; verification
+uses ZK apps.</p>
+<p><strong>Blocking tension:</strong> Q5 calls for open-blockchain
+credits verifiable by anyone, while Q10 suggests lifetime blockchain
+evidence. These can conflict with local-only records and privacy.</p>
+<p><strong>Still unresolved</strong> - Does “all records local” mean raw
+personal records remain local while users selectively publish
+proofs/commitments? - Which facts should a ZK proof reveal, and which
+must remain private? - How are public verification, revocation,
+correction, and data minimization handled?</p>
+<h2 id="q14.-peer-network">Q14. Peer network</h2>
+<p><strong>Decision given:</strong> Fossil SCM + libp2p is
+preferred.</p>
+<p><strong>Still unresolved</strong> - Which data is synchronized
+through Fossil and which messages/services use libp2p? - What are the
+MVP offline and sync-conflict acceptance tests? - How are peers
+discovered and spam/malicious peers handled without a central
+authority?</p>
+<h2 id="q15.-governance">Q15. Governance</h2>
+<p><strong>Decision given:</strong> “No governance model.”</p>
+<p><strong>Blocking tension:</strong> The project also expects
+grievances, employer/government validation, open credentials, automated
+assessment, and correction/revocation of evidence. These require defined
+procedures even if the project rejects platform-wide governance.</p>
+<p><strong>Still unresolved</strong> - Does “no governance” mean no
+voting/DAO, no central administrators, or no shared policy at all? - Can
+protocol maintainers publish software updates without controlling
+learner records or credentials? - What minimal process, if any, exists
+for security incidents, grievances, and incompatible protocol
+versions?</p>
+<h2 id="q16.-mvp-acceptance-criteria">Q16. MVP acceptance criteria</h2>
+<p><strong>Decision given:</strong> The complete course should work on a
+phone or laptop.</p>
+<p><strong>Still unresolved</strong> - Which phone/browser and
+laptop/browser combinations are supported first? - Must the course work
+fully offline after initial download? - What is the minimum complete
+module: content, quiz, practical assignment, automated result, local
+evidence, and export? - What resource limits and automated test suite
+define “works”?</p>
+<h2 id="q17.-warranty-and-liability">Q17. Warranty and liability</h2>
+<p><strong>Decision given:</strong> No warranty or liability.</p>
+<p><strong>Still unresolved</strong> - Draft appropriate terms and
+disclaimers with qualified legal review for the jurisdictions where the
+product is offered. - Which legal obligations or liabilities cannot be
+excluded by contract? - How are third-party AI providers, user-generated
+content, security issues, and credential misrepresentation
+addressed?</p>
+<p><strong>Caution:</strong> A “no warranty/liability” statement does
+not itself guarantee that all liability can legally be excluded.</p>
+<h2 id="q18.-costs-and-sustainability">Q18. Costs and
+sustainability</h2>
+<p><strong>Decision given:</strong> Costs are borne by peers or
+students.</p>
+<p><strong>Still unresolved</strong> - Which costs are paid by students:
+AI inference, storage, blockchain fees, network bandwidth, hosting, or
+all of them? - Must learning, local verification, and basic course
+access remain possible at zero monetary cost? - Can BYOK/local AI avoid
+mandatory provider spending, and how are costs disclosed before a task
+runs?</p>
+<h2 id="q19.-standards-and-stack">Q19. Standards and stack</h2>
+<p><strong>Decision given:</strong> Web3, wallets, ZK apps, Fossil, and
+Rust.</p>
+<p><strong>Still unresolved</strong> - Select specific interoperable
+standards rather than treating these technology categories as standards
+themselves. - Define stable module, assessment, evidence, wallet, and
+credential interfaces. - Which components are required for the first
+release, and which remain optional adapters?</p>
+<h2 id="q20.-employer-search-portal">Q20. Employer search portal</h2>
+<p><strong>Decision given:</strong> Build a portal that lets employers
+submit search queries.</p>
+<p><strong>Still unresolved</strong> - What can employers search: public
+portfolio data, learner-approved evidence, credentials, or private
+records? - Does a learner approve disclosure for each query or profile?
+- How are ranking bias, stale evidence, and misleading credential labels
+avoided?</p>
+<h2 id="q21.-blockchain-overhead">Q21. Blockchain overhead</h2>
+<p><strong>Decision given:</strong> Zero overhead; if costs are borne,
+they should be borne by the student.</p>
+<p><strong>Still unresolved</strong> - Does “zero overhead” mean zero
+platform fee, zero gas fee, zero extra infrastructure, or negligible
+user effort? - Which chain or layer is intended, and how will fees be
+measured on ordinary phones? - Should blockchain be in the MVP, or
+should the MVP prove the learning loop before adding it?</p>
+<h2 id="q22.-phd-equivalent-work">Q22. PhD-equivalent work</h2>
+<p><strong>Decision given:</strong> “If work is equivalent to PhD it is
+a PhD.”</p>
+<p><strong>Important distinction:</strong> The platform can assess or
+document PhD-level work/competency, but that alone does not make it a
+formally awarded or legally recognized PhD degree. A formal degree claim
+depends on applicable law and a recognized awarding authority.</p>
+<p><strong>Still unresolved</strong> - Should the platform issue a
+“PhD-level competency/research portfolio” record, while formal-degree
+status is shown separately? - What standards and independent evaluation
+determine equivalence? - Which recognized institution or legally
+authorized body, if any, can confer the formal degree?</p>
+<h2 id="q23.-protocol-and-tooling">Q23. Protocol and tooling</h2>
+<p><strong>Decision given:</strong> The protocol and tools should let
+anyone run a complete module; keep the design minimal, abstract,
+modular, and BYOK for AI.</p>
+<p><strong>Still unresolved</strong> - Define the module contract and
+the smallest reference runner. - Specify deterministic inputs/outputs,
+assessment interfaces, evidence export, and compatibility/versioning. -
+Define what “anyone can run” means for offline use, supported hardware,
+dependencies, and AI provider configuration.</p>
+<h2 id="cross-document-update-checklist">Cross-document update
+checklist</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />README: canonical name Vidyarthi;
+first AI-generated micro-course; MVP on phone/laptop; no unsupported
+accreditation claims.</label></li>
+<li><label><input type="checkbox" />White paper: reflect flat
+participation, optional peer review, automated assessment with grievance
+path, wallet/ZK privacy, and the open blockchain/local-record
+tension.</label></li>
+<li><label><input
+type="checkbox" /><code>src/vidyarthi/governance.py</code>: do not
+rewrite until “no authority” versus issuer/appeal needs is
+resolved.</label></li>
+<li><label><input type="checkbox" />Credential/evidence code: keep
+competency evidence distinct from employer endorsement, government
+validation, accreditation, and formal degrees.</label></li>
+<li><label><input type="checkbox" />Schemas: define module, assessment,
+quantitative/descriptive credit, wallet, proof, and evidence
+formats.</label></li>
+<li><label><input type="checkbox" />Tests: complete module on
+phone/laptop; offline behavior; automated grading; grievance state;
+privacy-preserving verification.</label></li>
+<li><label><input type="checkbox" />Legal/terms review before making “no
+liability,” government validation, or PhD claims.</label></li>
+</ul>
+<h2 id="decision-log">Decision log</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Date</th>
+<th>Topic</th>
+<th>Current decision</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2026-10-22</td>
+<td>Name</td>
+<td>Vidyarthi</td>
+<td>Confirmed</td>
+</tr>
+<tr class="even">
+<td>2026-10-22</td>
+<td>MVP</td>
+<td>AI-generated MOOC, consistent micro-learning modules,
+phone/laptop</td>
+<td>Confirmed direction; acceptance criteria open</td>
+</tr>
+<tr class="odd">
+<td>2026-10-22</td>
+<td>Participants</td>
+<td>Flat participants; no authority intended</td>
+<td>Ambiguous against validation and grievance requirements</td>
+</tr>
+<tr class="even">
+<td>2026-10-22</td>
+<td>Assessment</td>
+<td>Automated by default; human involvement after grievance</td>
+<td>Direction confirmed; appeal mechanism open</td>
+</tr>
+<tr class="odd">
+<td>2026-10-22</td>
+<td>Credits</td>
+<td>Descriptive and quantitative; compile into program results</td>
+<td>Direction confirmed; definitions open</td>
+</tr>
+<tr class="even">
+<td>2026-10-22</td>
+<td>Verification</td>
+<td>Open blockchain + local records + ZK apps</td>
+<td>Architecture conflict unresolved</td>
+</tr>
+<tr class="odd">
+<td>2026-10-22</td>
+<td>Peer network</td>
+<td>Fossil SCM + libp2p</td>
+<td>Preferred</td>
+</tr>
+<tr class="even">
+<td>2026-10-22</td>
+<td>Formal qualifications</td>
+<td>PhD-level work should be recognized as equivalent</td>
+<td>Formal degree versus competency status unresolved</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
