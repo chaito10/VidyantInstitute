@@ -1,0 +1,414 @@
+diff --git a/README.md b/README.md
+--- a/README.md
++++ b/README.md
+@@ -1,20 +1,31 @@
+-# Vidyarthi — Digital Distributed University
++# Vidyarthi / VidyantInstitute — Digital Distributed University (working title)
+  
+ > **Repo renamed:** `charudatta10/SageEduMint` → `charudatta10/VidyantInstitute`.
+ > Local origin updated to `https://github.com/charudatta10/VidyantInstitute.git`.
+ > Product spec renamed: **SageEduMint / OpenDAO University → Vidyarthi** per
+ > `Vidyarthi_White_Paper.docx` (v0.1 — Initial Proposal, 11 Oct 2026, status: Proposed architecture).
++
++> **Naming status:** No canonical product name has been selected. `Vidyarthi`, `VidyantInstitute`, `SageEduMint`, and `OpenDAO University` remain working names/aliases pending a later naming decision.
++> The repository is currently hosted as `chaito10/VidyantInstitute`; its repository name is not a final product-brand decision.
++> Spec source: `Vidyarthi_White_Paper.docx` (v0.1 — Initial Proposal, 11 Oct 2026; proposed architecture, not final).
+  
+-Vidyarthi is a **peer-to-peer, AI-driven micro-learning university**: version-controlled
+-course repositories, a minimal offline-capable web client, automated assessment pipelines,
+-user-controlled AI providers, peer networking, gamification, and cryptographically
+-verifiable credentials. **Local-first, not unconditionally decentralized.**
++The long-term vision is a local-first, AI-assisted learning ecosystem spanning **Foundation through PhD**. Begin with a small, verifiable MVP and grow incrementally. The working architecture emphasizes versioned course content, offline-capable learning, practical assessment, learner-controlled AI, collaboration, and portable competency evidence. **Local-first, not unconditionally decentralized.**
+  
+  Full spec: [white_paper.md](white_paper.md) (distilled from `Vidyarthi_White_Paper.docx`).
+  Courses: [`courses/cybersecurity-101/`](courses/cybersecurity-101/) (sample) and
+  [`courses/vidyarthi-101/`](courses/vidyarthi-101/) (**Vidyarthi Platform Orientation** —
+  this repo's documentation as a micro-course: 4 lessons with Marp slides, quizzes,
+  exercises, rubric, and capstone project).
+  Single-file client prototype: [`public/vidyarthi.html`](public/vidyarthi.html).
++
++## Current project decisions
++
++- **Name:** final canonical name deferred; all current and prior names remain working titles/aliases.
++- **Scope:** Foundation-to-PhD is the long-term vision; the first release should be a small MVP.
++- **Credentials:** prioritize employer-relevant skills and demonstrated competency. This is a design priority, not a claim of existing employer recognition or accreditation.
++- **Participants:** target a flat participant model with temporary, scoped capability-based permissions—not permanent rank-based roles.
++- **Implementation gap:** `src/vidyarthi/governance.py` still contains static academic roles. Authorization behavior is not being represented as migrated until the open capability-policy questions are resolved and tests are updated.
++
++Record of confirmed direction and open decisions: [`docs/PROJECT_DECISIONS.md`](docs/PROJECT_DECISIONS.md) and [`docs/OPEN_QUESTIONS.md`](docs/OPEN_QUESTIONS.md).
+  
+-## What changed (SageEduMint/OpenDAO → Vidyarthi v0.1)
++## Architecture evolution (legacy prototype → current working design)
+@@ -24,6 +39,6 @@
+  | Before | Now (v0.1) |
+  | --- | --- |
+-| DAO governance + tokenized voting, NFT degrees | Explicit academic roles, **no token/cryptocurrency**; signed portable credentials (§8) |
++| DAO governance + tokenized voting, NFT degrees | No token/cryptocurrency; target is a flat participant model with temporary capability-based permissions; implementation migration is pending (§11, [open questions](docs/OPEN_QUESTIONS.md)) |
+  | Blockchain-first (Celestia + EVM rollup, ERC-721) | **Blockchain deferred** — signed records + append-only history first (§8.4) |
+  | IPFS/OrbitDB/Ceramic, Filecoin, Kademlia DHT + torrents | **Fossil SCM** for courses + sync; **PocketBase** coordination only; optional Rust/libp2p peer service |
+  | Next.js/React, Tailwind/Alpine PWA | **Single HTML5 + vanilla JS/CSS** client, WASM for portable execution (§9.1) |
+@@ -74,4 +89,4 @@
+-# or serve it: npm run serve  (python http.server on :8080)
++# or serve it with Python: python -m http.server 8080
+  
+  # 3. Run a portable assessment job (§5) — adapter translates to Pipelight steps
+  python scripts/run_assessment.py --job courses/cybersecurity-101/assessments/tests/basic.json
+@@ -99,3 +113,2 @@
+-P2P networking, multimedia generation, consensus, and formal degrees do **not** block the MVP
+-(Appendix B): one Fossil course, one HTML client, quiz engine, XP/competency, BYOK,
+-Pipelight validation, restricted runner, signed result format, credential verifier.
++P2P networking, multimedia generation, consensus, and formal degrees do **not** block the MVP.
++The exact small end-to-end learning slice, required components, and acceptance criteria remain to be selected; components listed in Appendix B are not automatically all launch blockers. See [open questions](docs/OPEN_QUESTIONS.md).
+diff --git a/white_paper.md b/white_paper.md
+--- a/white_paper.md
++++ b/white_paper.md
+@@ -33,9 +33,10 @@
+  ### 1.2 Vision
+  
+-Discover → study offline → AI guidance → verifiable exercises → peer collaboration →
+-research contribution → portable competency evidence. Runs on ordinary PCs (and where feasible,
+-single-board computers / removable storage) without a permanent central server — toward an
+-ecosystem where communities create, teach, assess, and recognize learning with open tools.
++The long-term vision spans **Foundation through PhD**, with pathways based on learning outcomes,
++demonstrated competencies, research contributions, and portable evidence. The implementation
++should grow from a **small, verifiable MVP** rather than requiring the entire university vision
++at launch. The system should run on ordinary PCs (and where feasible, single-board computers /
++removable storage) without requiring a permanent central server.
+  
+  ### 1.3 Principles
+  Local-first; repository-native; AI-assisted but human-accountable (AI never confers authority);
+@@ -112,6 +112,10 @@
+  ## 8. Identity, credentials, credits (§8)
+  
+  Portable, verifiable, issuer-bound — Ed25519 signed records first, blockchain later.
++The current product priority is **employer-relevant skills and competency credentials** backed
++by inspectable evidence. Employer recognition is a target to validate with employers, not a
++property the platform can claim automatically. The interface and exports must distinguish
++community-issued, employer-endorsed, institution-issued, accredited, and legally recognized awards.
+  Credential: id, learner/pubkey, course+revision, outcomes, credit+system, evidence ref,
+  issuer+authority, policy/date, signature, revocation pointer. Lifecycle: eligibility →
+  evidence check → authorized approval → signing → learner-held distribution → signature/
+@@ -171,8 +175,12 @@
+  ## 11. Governance & sustainability (§11)
+  
+-Roles: learners, authors, reviewers, assessment operators, issuers, network maintainers,
+-moderators — scoped even when combined. Publish versioned specs + conformance tests for
++The intended model is **flat participation**: no permanent platform-wide participant ranks.
++Actions are gated by scoped, temporary, capability-based permissions. Capability grant,
++delegation, expiry, suspension, revocation, issuer authority, and multi-party safeguards remain
++design questions; track them in `docs/OPEN_QUESTIONS.md`. The current static-role implementation
++is transitional and must not be described as satisfying this target until migrated and tested.
++Publish versioned specs + conformance tests for
+  manifests, jobs/results, AI adapters, credentials/signatures, sync, competency/credit maps,
+  revocations (reuse standards where possible). Sustain without single-provider dependence or
+  mandatory subscriptions: institutional/community nodes, contributions, grants, paid hosting/
+  assessment options; BYOK/local shifts inference cost visibly; keep access/verification free
+@@ -224,5 +230,8 @@
+  ## Appendix B. MVP
+  
+-One Fossil course, single-file HTML client, Markdown + Marp slides, JSON quiz engine,
+-XP/competency progress, BYOK (one hosted + one local), Pipelight validation, restricted runner,
+-signed result format, credential verifier. P2P media, consensus, and formal degrees wait.
++Start with a small local-first vertical slice that proves one end-to-end learning journey:
++load a course, study offline, complete a quiz or bounded practical assessment, and retain/export
++progress/evidence. P2P media, consensus, and formal-degree pathways wait. Decide the exact
++subject, mandatory components, and acceptance tests before expanding this MVP (see
++`docs/OPEN_QUESTIONS.md`). BYOK, restricted execution, signed results, and credential verification
++can be introduced as separate increments unless the approved acceptance criteria require them.
+diff --git a/docs/PROJECT_DECISIONS.md b/docs/PROJECT_DECISIONS.md
+new file mode 100644
+--- /dev/null
++++ b/docs/PROJECT_DECISIONS.md
+@@ -0,0 +1,21 @@
++# Vidyarthi Project Decisions
++
++**Status:** Working decisions, updated 22 October 2026. This document records current direction, not a finalized canonical brand or a claim that all architecture is already implemented.
++
++## Confirmed decisions
++
++1. **Naming remains open.** Do not appoint a canonical product name yet. Vidyarthi, VidyantInstitute, SageEduMint, and OpenDAO University remain working names/aliases while naming is evaluated. The GitHub repository remains `VidyantInstitute` for now.
++2. **Long-term scope:** envision an education ecosystem spanning Foundation through PhD.
++3. **Delivery strategy:** start with a small MVP and expand incrementally; avoid making P2P scale, consensus, full credentialing, or formal-degree pathways prerequisites for proving the first learning journey.
++4. **Credential priority:** prioritize demonstrable, employer-relevant skills and competency evidence. Employer recognition is a goal, not an existing guarantee. Clearly distinguish community-issued, employer-endorsed, institution-issued, accredited, and legally recognized awards.
++5. **Participant model:** use a flat participant model with temporary, scoped, capability-based permissions rather than permanent rank-based roles.
++
++## Existing implementation gap
++
++The current `src/vidyarthi/governance.py` exposes static academic role names, and the white paper describes an issuer/role workflow. The decisions above supersede that as the target model, but details of capability issuance, delegation, expiry, revocation, issuer authority, and multi-party approvals remain unresolved. Do not claim the capability model is implemented until the open questions are answered and tests demonstrate it.
++
++## Next steps
++
++1. Fill out [`OPEN_QUESTIONS.md`](OPEN_QUESTIONS.md), especially Q1–Q3 and Q16.
++2. Resolve contradictions before altering authorization/credential issuance behavior.
++3. Update specification, schemas, code, tests, course content, and changelog together after answers are approved.
+diff --git a/docs/OPEN_QUESTIONS.md b/docs/OPEN_QUESTIONS.md
+new file mode 100644
+--- /dev/null
++++ b/docs/OPEN_QUESTIONS.md
+@@ -0,0 +1,266 @@
++# Vidyarthi — Unanswered Questions and Decision Log
++
++> **Purpose:** Working checklist for questions that remain unresolved in the Vidyarthi university project. Fill in the **Your decision** fields when ready. Do not treat proposals or earlier working names as canonical unless explicitly approved.
++>
++> **Context:** The repository currently uses the names Vidyarthi and VidyantInstitute, with SageEduMint and OpenDAO University retained as working names/aliases while the final canonical name is deferred. This checklist reflects the latest confirmed direction shared in project discussions as of 22 October 2026.
++
++## How to use this file
++
++- Replace `[Your answer here]` with a decision, or write `Defer` with a reason.
++- Keep disputed or contradictory decisions visible until resolved.
++- Once a decision is approved, update the relevant specification, implementation, tests, and changelog in the same change.
++- Do not treat a credential as employer-recognized, institutionally accredited, or legally recognized unless the relevant recognition has actually been established.
++
++## 1. Confirmed direction — do not reopen without reason
++
++These are current decisions, not unanswered questions:
++
++- [x] **Naming:** Decide the final canonical name later; retain existing names as working titles/aliases for now.
++- [x] **Scope:** Long-term vision spans Foundation through PhD; begin with a small, verifiable MVP.
++- [x] **Credentials:** Prioritize employer-recognized skills and competency credentials.
++- [x] **Participant model:** Flat participant model, with temporary, capability-based permissions rather than permanent rank-based roles.
++
++## 2. Blocking design contradictions
++
++### Q1. Flat participants versus role-based authorization
++
++**Why this is open:** The current `white_paper.md`, `src/vidyarthi/governance.py`, README, and credential logic describe explicit roles such as course reviewer, assessment operator, and credential issuer. The latest direction is a flat participant model with temporary, capability-based permissions.
++
++**Questions**
++- What grants a capability: self-declaration, peer delegation, evidence, community policy, or issuer authorization?
++- Who may grant, scope, expire, suspend, or revoke a capability?
++- Should high-impact capabilities require multiple independent approvals?
++- How are issuer authority and legal/institutional recognition represented without permanent user ranks?
++
++**Your decision:** [Your answer here]
++
++### Q2. Scope of the first MVP
++
++**Why this is open:** The long-term vision spans Foundation through PhD, but the repository's MVP is a local learning loop with course packages, quizzes, AI assistance, assessment, and credential verification.
++
++- Which single learning journey must work end-to-end in the MVP?
++- Which learner level or subject will be used for the first demonstrator?
++- Which proposed components are mandatory at MVP launch, and which remain prototypes or future phases?
++
++**Your decision:** [Your answer here]
++
++### Q3. Meaning of employer-recognized credentials
++
++- What evidence makes a skill or competency credential credible to employers?
++- Will employer recognition start through a small advisory/pilot group, hiring partners, practical challenge results, independent assessors, or another route?
++- Should credentials contain evidence links, reproducible test results, project artefacts, rubric versions, assessor attestations, and confidence/limitations?
++- How should the platform label community-issued credentials versus employer-endorsed, institution-issued, accredited, or legally recognized qualifications?
++
++**Your decision:** [Your answer here]
++
++### Q4. Name and brand transition
++
++- Which names remain historical aliases, and which should appear in the UI or documentation during the transition?
++- Should the repository name `VidyantInstitute` remain even if the eventual product name changes?
++- What event or milestone triggers a canonical-name decision?
++
++**Your decision:** [Your answer here]
++
++## 3. Academic model and learning pathways
++
++### Q5. Foundation-to-PhD pathway structure
++
++- How should the platform represent the stages Foundation, school-level learning, undergraduate, postgraduate, research, and PhD-level work?
++- Are these formal programs, competency maps, optional pathways, or just discovery labels?
++- Can participants enter at any level based on demonstrated competency rather than prior certificates?
++- Who defines prerequisites, equivalencies, and progression rules?
++
++**Your decision:** [Your answer here]
++
++### Q6. Curriculum governance
++
++- Who can propose, review, publish, fork, deprecate, and archive course revisions?
++- Which decisions require independent peer review or subject-matter review?
++- Is there a distinction between community curriculum approval and employer/institution endorsement?
++- What appeal path exists when a course or assessment is rejected?
++
++**Your decision:** [Your answer here]
++
++### Q7. Credits and qualifications
++
++The current specification says credits are descriptive unless an authorized policy assigns value.
++
++- Should the MVP omit credit totals entirely, retain descriptive credits, or model workload/credit systems from the start?
++- How are competencies composed into larger certificates or qualifications?
++- Who owns equivalency mappings across communities and external frameworks?
++
++**Your decision:** [Your answer here]
++
++## 4. Assessment, AI, and evidence
++
++### Q8. Assessment modes and human oversight
++
++- Which assessments can be fully automated, and which require human review?
++- What level of independent review is required for high-stakes outcomes?
++- How will rubric changes, appeals, re-submissions, suspected cheating, and assessor conflicts be handled?
++- Should a learner be allowed to challenge an AI-generated score before it becomes part of an issued credential?
++
++**Your decision:** [Your answer here]
++
++### Q9. Agentic AI responsibilities
++
++- Which tasks may AI agents perform autonomously: drafting courses, generating tests, reviewing submissions, conducting oral assessments, recommending pathways, or proposing credentials?
++- Which actions always require a human or authorized capability-holder?
++- How will generated content, code, tests, and claims be traced to model/provider/version and reviewed?
++- What limits apply to cost, rate, privacy, data retention, and local-model operation?
++
++**Your decision:** [Your answer here]
++
++### Q10. Evidence quality and reproducibility
++
++- What is the minimum evidence bundle for a competency credential?
++- How long must assessment artefacts and rubrics remain available?
++- How will results be reproduced when the execution environment, model, or dependencies change?
++- What quality gates prevent fabricated references, tests that merely pass themselves, or low-quality AI-generated course material?
++
++**Your decision:** [Your answer here]
++
++## 5. Identity, privacy, trust, and governance
++
++### Q11. Identity model
++
++- Is an account or persistent public key needed for ordinary learning?
++- Can participants learn and submit work pseudonymously?
++- What evidence binds a person or organization to an issuer key when that binding is required?
++- What happens after key loss, compromise, rotation, or transfer of an organizational issuer?
++
++**Your decision:** [Your answer here]
++
++### Q12. Capability lifecycle and security
++
++- What is the capability format and scope (action, resource, audience, expiry, delegation, limits)?
++- Should capabilities be signed, locally verifiable, and revocable?
++- How are replay, privilege escalation, collusion, Sybil activity, and conflicting capability grants prevented or detected?
++- Which actions require short-lived capabilities or multi-party approval?
++
++**Your decision:** [Your answer here]
++
++### Q13. Data privacy and portability
++
++- Which records are local-only by default, and which can sync to peers?
++- What are the rules for deletion requests when copies or credential evidence have been replicated?
++- How should confidential research, unpublished papers, minors' data, and sensitive submissions be handled?
++- Which export format should learners use to back up and migrate their data?
++
++**Your decision:** [Your answer here]
++
++### Q14. Peer network versus optional central services
++
++- Which functions must work fully offline?
++- Which functions may use a hosted coordination service without becoming dependent on it?
++- Is Fossil plus optional libp2p still the preferred approach, or should an alternative be benchmarked before implementation?
++- What are the acceptance tests for recovery, conflict resolution, peer discovery, spam resistance, and network outages?
++
++**Your decision:** [Your answer here]
++
++### Q15. Governance model
++
++- How are shared policies proposed and changed in a flat participant system?
++- Is governance per course, per community, per issuer, or platform-wide?
++- What stops wealth, popularity, or compute ownership from creating de facto permanent hierarchy?
++- Is a replicated ledger ever needed, and what concrete failure of signed append-only records would justify one?
++
++**Your decision:** [Your answer here]
++
++## 6. MVP delivery and sustainability
++
++### Q16. MVP acceptance criteria
++
++- What is the one command or documented sequence that demonstrates a complete local learning and assessment cycle?
++- Which tests must pass before calling the MVP usable?
++- What are the target limits for startup time, storage, memory, offline support, and ordinary hardware?
++- What security review is required before running untrusted submissions?
++
++**Your decision:** [Your answer here]
++
++### Q17. Deployment and operational ownership
++
++- Which deployment profile (personal, community, institutional) is the first supported target?
++- Who hosts any shared services, and what data do they retain?
++- What backup, restore, update, and migration procedures are required?
++- What is the minimum support/maintenance promise for course packages and credential verification?
++
++**Your decision:** [Your answer here]
++
++### Q18. Sustainability and access
++
++- Which services must remain free to use and verify?
++- Which costs can be covered by grants, donations, institutional hosting, employer partnerships, or optional paid services?
++- What safeguards prevent paid services from becoming a gate to learning or credential verification?
++- Who pays for hosted AI or compute when the learner does not bring their own provider?
++
++**Your decision:** [Your answer here]
++
++## 7. Standards, interoperability, and recognition
++
++### Q19. External formats and standards
++
++- Which existing standards should be evaluated for verifiable credentials, learning outcomes, skills, assessments, accessibility, and course metadata?
++- Which integrations are required for the initial employer pilot?
++- What export/import tests define practical interoperability?
++
++**Your decision:** [Your answer here]
++
++### Q20. Employer feedback loop
++
++- How will employers search and evaluate portfolios or competency evidence without turning the platform into a popularity ranking?
++- What feedback can employers provide, and can participants contest or hide it?
++- Will there be a pilot with named employers or industry partners before claiming recognition?
++
++**Your decision:** [Your answer here]
++
++## 8. Questions to resolve after the MVP proves value
++
++### Q21. Blockchain and consensus
++
++- What actual multi-party coordination requirement cannot be met by signatures, versioned repositories, and append-only logs?
++- What threat model and governance membership would a ledger need to satisfy?
++- What evidence would justify the maintenance, privacy, and recovery costs of consensus?
++
++**Your decision:** [Your answer here]
++
++### Q22. Research and doctoral pathways
++
++- How are research proposals, supervisors/mentors, research ethics, peer review, reproducibility, and thesis milestones represented?
++- How can external experts participate without receiving permanent platform-wide authority?
++- How do research achievements map to competency evidence while clearly distinguishing platform-issued credentials from formal PhD degrees?
++
++**Your decision:** [Your answer here]
++
++### Q23. Open-source project boundaries
++
++- What belongs in this repository versus separate specifications, course repositories, deployment tooling, and reference implementations?
++- Which root-level spec convention will be used (for example, design spec, architecture decision records, or technical note)?
++- Which white papers are planned, and what claims/evidence/review process must each include?
++
++**Your decision:** [Your answer here]
++
++## 9. Cross-document consistency checklist
++
++After answering questions, check all of the following for alignment:
++
++- [ ] `README.md` — current direction, MVP scope, setup instructions, links.
++- [ ] `white_paper.md` — vision, participant model, capability lifecycle, credential recognition caveats.
++- [ ] `Vidyarthi_White_Paper.docx` — archival source reconciled with the approved spec.
++- [ ] `src/vidyarthi/governance.py` — flat participant and scoped temporary capability design.
++- [ ] `src/security/` — authorization, revocation, validation, and audit policy.
++- [ ] `src/vidyarthi/credentials.py` — evidence, issuer authority, recognition labels, revocation.
++- [ ] `schemas/` — versioned course, assessment, result, capability, and credential schemas.
++- [ ] `public/vidyarthi.html` — learner-facing language does not imply unsupported recognition or completed features.
++- [ ] `courses/vidyarthi-101/` — orientation material matches the approved platform model.
++- [ ] Tests and CI — enforce the approved rules and reject contradictory states.
++- [ ] `CHANGELOG.md` — record approved behavioral and architectural changes.
++
++## Decision log
++
++| Date | Question | Decision | Status |
++|---|---|---|---|
++| 2026-10-22 | Naming | Final canonical name deferred; current names remain working titles | Confirmed |
++| 2026-10-22 | Scope | Foundation-to-PhD long-term vision; small MVP first | Confirmed |
++| 2026-10-22 | Credentials | Prioritize employer-recognized skills and competency credentials | Confirmed |
++| 2026-10-22 | Participants | Flat participants with temporary capability-based permissions | Confirmed |

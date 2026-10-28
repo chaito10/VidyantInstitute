@@ -309,10 +309,14 @@ poetry.toml
 pyrightconfig.json
 
 # Project-specific
-.log
-sageedum_data/
+*.log
+sageedum_data_archive/
 torrents/
 users.json
 
 # GitHub Pages build output (rebuilt by .github/workflows/pages.yml)
 site/
+
+# Old consolidated HTML docs (archived to docs/DECISIONS.md)
+docs/OPEN_QUESTIONS.html
+docs/PROJECT_DECISIONS.html
