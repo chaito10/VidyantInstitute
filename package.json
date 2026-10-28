@@ -1,6 +1,6 @@
 {
   "name": "vidyarthi",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Vidyarthi — peer-to-peer, AI-driven micro-learning university (local-first; Fossil courses, vanilla HTML client, PocketBase, Pipelight, BYOK AI, signed credentials).",
   "scripts": {
     "validate": "python scripts/validate_course.py courses/cybersecurity-101",

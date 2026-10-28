@@ -1,6 +1,6 @@
 [project]
 name = "vidyarthi"
-version = "0.2.0"
+version = "0.3.0"
 description = "Vidyarthi — local-first micro-learning university core (course validation, Pipelight assessment adapter, BYOK AI, signed credentials)"
 readme = "README.md"
 requires-python = ">=3.13"
